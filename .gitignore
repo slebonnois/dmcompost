@@ -5,3 +5,4 @@ yarn.lock
 /assets/public/css/
 /assets/public/images/
 /assets/public/js/
+/**/.DS_Store
