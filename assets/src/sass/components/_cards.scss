@@ -1,0 +1,270 @@
+.card {
+  filter: drop-shadow(1px 5px 8px rgba(0, 0, 0, 0.2));
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: stretch;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  margin-bottom: 3.2rem;
+
+  .card-header {
+    padding: 2.4rem 3.2rem 1.6rem 3.2rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+    min-height: 19.8rem;
+    background-color: white;
+    color: var(--texte);
+  }
+
+  &.card-expertise {
+    .card-header {
+      text-align: center;
+      color: white;
+      padding: 2.4rem 4rem;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      min-height: 21.7155rem;
+    }
+  }
+
+  &.card-bureau-detudes {
+    .card-header {
+      background-color: var(--be);
+    }
+  }
+
+  &.card-compostage-de-proximite {
+    .card-header {
+      background-color: var(--prox);
+    }
+  }
+
+  &.card-formation {
+    .card-header {
+      background-color: var(--form);
+    }
+  }
+
+  .card-conteneur {
+    position: relative;
+    aspect-ratio: 37.5/20;
+    background-position: center;
+    background-size: cover;
+    .btn-xs {
+      position: absolute;
+      right: 2.4rem;
+      bottom: 2.4rem;
+    }
+  }
+  &.card-expertise {
+    .card-conteneur {
+      aspect-ratio: 37.6/25.8;
+    }
+  }
+}
+
+.card-cibles {
+  padding: 2.4rem 4rem 0rem 4rem;
+  border-radius: 0.8rem;
+  border: 8px solid var(--blanc, #fff);
+  background: var(--marron1, #eae7e4);
+  box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.29);
+  ul {
+    padding-left: 0;
+    padding-top: 1.6rem;
+  }
+  li {
+    list-style: none;
+    border-top: 1px solid #c5bdb4;
+    display: block;
+    padding: 1.6rem 0rem;
+    a {
+      color: var(--be);
+      text-decoration: none;
+      position: relative;
+      display: block;
+      padding-right: 2rem;
+      &:after {
+        content: ' ';
+        width: 2.8rem;
+        height: 2.8rem;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url(../images/ico-lien-cible.svg);
+      }
+    }
+  }
+}
+
+.card-accompagne {
+  background-color: var(--be);
+  background-image: url('../images/fd-accompagne.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom left;
+  padding: 2.4rem;
+  min-height: 28.2rem;
+  border-radius: 0.8rem;
+  color: white;
+  margin-bottom: 3.2rem;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+
+  position: relative;
+
+  .card-accompagne-nbr {
+    color: var(--vert);
+  }
+
+  &.card-accompagne--3 {
+    margin-top: 15.8rem;
+  }
+
+  &.card-accompagne-image {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+body.compostage-de-proximite {
+  .card-accompagne {
+    background-color: var(--prox);
+  }
+}
+
+.card-formation {
+  background-color: #eae7e4;
+  background-image: url(../images/fd-formation.svg);
+  background-size: cover;
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
+
+  aspect-ratio: 27.3/33.8;
+  color: var(--texte);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: stretch;
+
+  a {
+    color: var(--texte);
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .titre-m {
+    padding: 0 3.2rem;
+  }
+
+  .card-formation--detail {
+    padding: 0 3.2rem 4rem 3.2rem;
+  }
+}
+
+.formation-certifiante {
+  color: var(--be);
+  display: inline-block;
+  font-weight: bold;
+  height: 2.7rem;
+  background-image: url(../images/ico-certifiant.svg);
+  background-repeat: no-repeat;
+  padding-left: 2.4rem;
+  line-height: 2.7rem !important;
+}
+
+.card-formation--type {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+
+  > div {
+    padding: 1.4rem 3.2rem;
+    width: 14.1417rem;
+    height: 4.5133rem;
+    border-radius: 0rem 0rem 0rem 1.6rem;
+    font-weight: bold;
+    @extend .texte-s;
+    color: white;
+  }
+  .card-formation--type--formation {
+    background: var(--cat-formation, #a13202);
+
+    font-weight: bold;
+  }
+
+  .card-formation--type--animation {
+    background: var(--cat-animation, #c36900);
+  }
+}
+
+.card-formateur {
+  border-radius: 8rem 0.8rem 0.8rem 8rem;
+  background-color: white;
+  box-shadow: 1px 5px 8px 0px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  padding-right: 1.6rem;
+  width: 100%;
+  margin-bottom: calc(3.2rem / 2);
+  margin-top: calc(3.2rem / 2);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+
+  .titre-s {
+    color: var(--form);
+  }
+
+  .card-formateur--portrait {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: 16rem;
+    margin-right: 1rem;
+    border: 0.8rem solid white;
+    //box-shadow:inset 0px 0px 0px 0.8rem #fff;
+  }
+
+  .card-formateur--nom {
+    order: 1;
+    flex: 1 1 auto;
+    align-self: auto;
+  }
+}

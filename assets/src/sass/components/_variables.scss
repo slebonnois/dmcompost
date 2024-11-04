@@ -1,0 +1,39 @@
+/* COULEURS */
+:root {
+  --texte: #201202;
+  --bs-heading-color: #201202;
+
+  --vert: #bdc700;
+  --fond1: #c5bdb4;
+  --fond2: #eae7e4;
+
+  --be: #00506a;
+  --prox: #01743D;
+  --form: #712222;
+}
+
+// Marges
+
+:root {
+  --margin: 2.4rem;
+  --gutter: calc(2.4rem / 2);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --margin: 16rem;
+    --gutter: calc(3.2rem / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --margin: 16rem;
+    --gutter: calc(3.2rem / 2);
+  }
+}
+
+// Filtres
+:root {
+  --filtre-photos: linear-gradient(289deg, #bcc602 24.81%, #00506a 90.42%);
+}

@@ -1,0 +1,239 @@
+.container-formation--header {
+  > .row {
+    &:first-child {
+      padding-top: 8rem;
+    }
+  }
+
+  .card-formation--type {
+    justify-content: flex-start;
+    > div {
+      border-radius: 0.4rem;
+    }
+  }
+
+  .formation-certifiante {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.container-formation {
+  padding-top: 8.8rem;
+}
+
+.formation-section {
+  margin-bottom: 6rem;
+
+  .titre-m {
+    margin-bottom: 2.1rem;
+  }
+}
+
+.formation-certifications {
+  margin-top: 1.6rem;
+  > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      width: 7.6rem;
+      margin-right: 0.8rem;
+    }
+  }
+}
+
+.container-formation--detail {
+  .titre-s,
+  .titre-m {
+    color: var(--form);
+  }
+
+  .titre-m {
+    font-weight: 700;
+  }
+  .titre-s {
+    margin-bottom: 0.8rem;
+  }
+}
+
+.formation-objectifs {
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  li {
+    list-style: none;
+    padding-left: 3.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    &:before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      display: inline-block;
+      background-image: url('../images/ico-check.svg');
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 2.1rem auto;
+      width: 2.1rem;
+      height: 2.1rem;
+    }
+  }
+}
+
+.formation-detail {
+  border-bottom: 1px solid #c5bdb4;
+  margin-bottom: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+
+.ico-formation {
+  position: relative;
+  vertical-align: middle;
+  &:before {
+    content: ' ';
+    width: 3.5rem;
+    height: 3.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -0.2rem;
+    margin-right: 0.8rem;
+  }
+
+  &.ico-tarif:before {
+    background-image: url(../images/ico-tarif.svg);
+  }
+  &.ico-public:before {
+    background-image: url(../images/ico-public.svg);
+  }
+  &.ico-duree:before {
+    background-image: url(../images/ico-duree.svg);
+  }
+  &.ico-lieu:before {
+    background-image: url(../images/ico-lieu.svg);
+  }
+}
+
+.formation-detail,
+.card-formation {
+  .tag {
+    color: var(--be);
+    border: 1px solid var(--be);
+    margin-right: 0.8rem;
+  }
+}
+
+.formation-detail {
+  .tag {
+    margin-bottom: 0.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+.formation-complement,
+.formation-programme {
+  li {
+    padding-left: 0.8rem;
+    list-style-image: url(../images/ico-puce.svg);
+    margin-bottom: 0.8rem;
+  }
+}
+
+.ils_nous_font_confiance {
+  position: relative;
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.6);
+
+  padding: 6rem;
+
+  .titre-xl {
+    position: absolute;
+    left: 0;
+    top: -3rem;
+  }
+
+  img {
+    max-height: 12rem;
+    max-width: 17rem;
+    padding: 0 2.4rem;
+  }
+
+  .ils_nous_font_confiance-logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+body.formations-animations {
+  .row-chiffres {
+    padding: 5rem 0 6rem 0;
+    .texte-xxl {
+      text-align: center;
+      color: var(--form);
+      margin-bottom: 1rem;
+    }
+
+    .chiffre {
+      color: var(--vert);
+      text-align: center;
+      line-height: normal;
+    }
+    .titre-s {
+      color: var(--form);
+      text-align: center;
+    }
+  }
+}
+
+.picto {
+  margin: calc(5.2rem / 2) 0;
+  .picto-image {
+    width: 11.2rem;
+    height: 11.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+
+    &.picto-formation-1 {
+      background-image: url(../images/ico-formation1.svg);
+    }
+    &.picto-formation-2 {
+      background-image: url(../images/ico-formation2.svg);
+    }
+    &.picto-formation-3 {
+      background-image: url(../images/ico-formation3.svg);
+    }
+    &.picto-formation-4 {
+      background-image: url(../images/ico-formation4.svg);
+    }
+  }
+
+  .picto-texte {
+    margin-top: 0.5rem;
+    height: 8.4rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+.container-cta-formation {
+  margin-top: calc(5.6rem - 3.2rem);
+}

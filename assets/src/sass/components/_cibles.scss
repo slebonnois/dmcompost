@@ -1,0 +1,84 @@
+.container-cible {
+  margin-top: 3.3rem;
+
+  overflow: hidden;
+
+  .row {
+    position: relative;
+    &:first-child {
+      padding-top: 0 !important;
+    }
+  }
+
+  .col {
+    z-index: 2;
+  }
+  .cible-header {
+    margin: 12rem 0;
+    text-align: right;
+    .titre-xxl {
+      color: var(--texte);
+    }
+  }
+
+  .cible-fond {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 84rem;
+
+    opacity: 0.6;
+    background-image: url(../images/fd-collectivite.png)  ;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+
+  .cible-illu {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    width: 100%;
+    height: 50rem;
+    top: -270px;
+    background-image: url(../images/illu-cible1.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
+
+  .row-contenu {
+    .titre-m,
+    .row-contenu--texte  {
+        margin-bottom:1.6rem;
+    }
+    &:nth-child(odd) {
+        .row-contenu--texte {
+            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: flex-end;
+            align-items: flex-end;
+
+            text-align: right;
+        }
+      }
+      &:nth-child(even) {
+        .row-contenu--texte {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: flex-end;
+            align-items: flex-start;
+
+            text-align: left;
+        }
+      }
+  }
+  
+
+}

@@ -1,0 +1,155 @@
+html,
+body {
+  font-size: 10px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: var(--texte) !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.titre-xxl {
+  font-size: 5.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 5.4rem; /* 103.846% */
+  letter-spacing: -0.025rem;
+  color: white;
+  margin-bottom: 2.4rem;
+}
+
+.titre-xl {
+  font-family: Oswald;
+  font-size: 4.6rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 5.8rem; /* 126.087% */
+  letter-spacing: 0.368rem;
+  text-transform: uppercase;
+  margin-bottom:2.4rem;
+}
+
+.titre-l {
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 4.8rem; /* 137.143% */
+}
+
+.titre-m {
+  font-family: Oswald;
+  font-size: 2.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.6rem; /* 138.462% */
+  text-transform: uppercase;
+}
+
+.titre-s {
+  font-family: Oswald;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+}
+
+.texte-xxl {
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3rem;
+}
+
+.texte-xl {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 3rem; /* 150% */
+}
+
+.texte-l {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.4rem; /* 133.333% */
+}
+
+.texte-m {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.4rem; /* 150% */
+}
+
+.texte-s {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.9rem; /* 135.714% */
+}
+
+.texte-xs {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.9rem; /* 135.714% */
+}
+.menu {
+  font-family: Oswald;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.8rem; /* 155.556% */
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.menu-s {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.6rem; /* 114.286% */
+}
+
+.btn-texte {
+  font-family: Oswald;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+.btn {
+  @extend .btn-texte;
+}
+
+.tag {
+  font-family: Oswald;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.citation {
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 3.2rem; /* 160% */
+}
+
+.chiffre {
+  color: #000;
+  /* chiffres */
+  font-family: Oswald;
+  font-size: 5.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 7rem;
+}

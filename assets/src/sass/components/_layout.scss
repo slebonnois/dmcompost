@@ -1,0 +1,259 @@
+body {
+  background-image: url('../images/fd-papier.jpg');
+  background-repeat: repeat;
+
+  &.bureau-detudes {
+    .couleur {
+      color: var(--be) !important;
+    }
+  }
+
+  &.compostage-de-proximite {
+    .couleur {
+      color: var(--prox) !important;
+    }
+  }
+
+  &.formation {
+    .couleur {
+      color: var(--form) !important;
+    }
+  }
+}
+
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+.container-accueil-expertise {
+  .titre-xl {
+    color: white;
+    text-align: center;
+  }
+
+  .col-lg-4 {
+    &:nth-child(3) {
+      margin-top: 5rem;
+    }
+  }
+}
+
+.container-accueil {
+  margin-top: 19rem;
+  margin-bottom: 31rem;
+  .titre-l {
+    color: var(--vert);
+    strong {
+      color: white !important;
+    }
+  }
+  .card-cibles {
+    margin-top: 14.7rem;
+  }
+}
+
+.container-chemin {
+  margin-top: 8.2rem;
+  color: var(--vert);
+  @extend .texte-s;
+  a {
+    color: var(--vert);
+  }
+  .breadcrumb_last {
+    color: white;
+  }
+  .col {
+    text-align: center;
+  }
+}
+
+.container-expertise {
+  padding: 6rem 0 8rem 0;
+  text-align: center;
+  color: white;
+}
+
+.container-expertise--services {
+  margin-bottom: 16rem;
+
+  > .row > .col {
+    &:nth-child(odd) {
+      @include make-col-offset(2, 12);
+    }
+  }
+}
+
+.container-page > .row {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(102, 102, 102, 0) 62.97%
+  );
+  background-image: url('../images/fd-papier.jpg');
+
+  &:first-child {
+    padding-top: 4.8rem;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+  }
+}
+
+.service-icone {
+  width: 14rem;
+  height: 14rem;
+  margin-bottom: 1.6rem;
+}
+
+.image-contenu {
+  //width: 47.8rem;
+  //height: 47.8rem;
+  aspect-ratio: 47.8/47.8;
+  background-position: center;
+  background-size: cover;
+  border-radius: 0.8rem;
+  position: relative;
+}
+
+.filtre {
+  background: var(--filtre-photos);
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+}
+
+.row-contenu {
+  padding: 4rem 0 4rem 0;
+
+  .row-contenu--texte {
+    ul {
+      list-style-image: url('../images/ico-puce.svg');
+    }
+    li {
+      margin-bottom: 1.6rem;
+      padding-left: 0.5rem;
+    }
+
+    a {
+      color: #1a2569;
+    }
+  }
+
+  &:nth-child(odd) {
+    .row-contenu--texte {
+      order: 0;
+      @include make-col-offset(1, 12);
+      > * {
+        margin-right: 4rem;
+      }
+    }
+    .row-contenu--image {
+      order: 1;
+    }
+  }
+  &:nth-child(even) {
+    .row-contenu--texte {
+      order: 1;
+      > * {
+        margin-left: 4rem;
+      }
+    }
+    .row-contenu--image {
+      order: 0;
+      @include make-col-offset(1, 12);
+    }
+  }
+}
+
+.row-accompagne {
+  margin: 8rem 0;
+
+  .titre-xl {
+    margin: 0 4.9rem 2.3rem 0;
+  }
+}
+
+.row-chiffres {
+  background-image: url('../images/fd-chiffres.svg') !important;
+  background-size: 100% 100%;
+  color: var(--be);
+  padding: 7rem 0 6rem 0;
+  margin-bottom: 8rem;
+  .chiffre,
+  .texte-m {
+    color: var(--vert);
+  }
+  .col-quart {
+    text-align: center;
+  }
+}
+
+.col-quart {
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(12);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(1, 4);
+  }
+}
+
+.col-demi {
+  @include make-col-ready();
+
+  @include media-breakpoint-up(sm) {
+    @include make-col(12);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(1, 2);
+  }
+}
+
+.row-realisations {
+  position: relative;
+  .titre-xl {
+    margin-bottom: 4.2rem;
+  }
+}
+
+.zone-logos {
+  color: #1a2569;
+  a {
+    color: #1a2569;
+    font-weight: 700;
+  }
+  img {
+    max-height: 8rem;
+    max-width: 12rem;
+  }
+  .col-qualiopi {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+  .texte-xs {
+    padding-left: 1rem;
+  }
+}
+
+.zone-contenus {
+  margin-bottom: 16rem;
+}
+
+.marge-6 {
+  padding-left: 6rem !important;
+}
+

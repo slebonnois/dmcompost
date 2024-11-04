@@ -1,0 +1,111 @@
+nav {
+  position: relative;
+  z-index: 1;
+
+  .menu-principal,
+  .menu-secondaire {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      display: inline-block;
+      padding-left: 6rem;
+      list-style: none;
+      a {
+        color: white;
+      }
+    }
+  }
+
+  .menu-principal {
+    height: 13.3rem;
+    .menu-conteneur {
+      margin-right: 4rem;
+    }
+  }
+  .menu-secondaire {
+    height: 4.8rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: flex-start;
+    .menu-conteneur li {
+      padding-left: 1.6rem;
+
+      &:last-child {
+        background: rgba(0, 0, 0, 0.4);
+        padding-left: 0;
+      }
+    }
+  }
+
+  .menu-contact {
+    display: flex;
+    height:4.8rem;
+    //padding: calc(1.2rem + 2px) calc(1.6rem + 2px);
+    padding: 1.2rem 1.6rem;
+    padding-right:2rem;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    align-items: center;
+    gap: 1.2rem;
+    flex-shrink: 0;
+    border-radius: 0rem 0rem 0rem 1.6rem;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .menu-vous-etes {
+    height:4.8rem;
+    display: inline-flex;
+    padding: 1.2rem 1.6rem;
+    padding-right:6rem;
+  
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--texte) !important;
+    border-radius: 0rem 0rem 0rem 1.6rem;
+    border-bottom: 4px solid white;
+    border-left: 4px solid white;
+    background: var(--marron1, #eae7e4);
+    position: relative;
+
+    &:after {
+      content: ' ';
+      width: 2.8rem;
+      height: 2.8rem;
+      display: block;
+      position: absolute;
+      right: 1.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: url(../images/ico-lien-cible.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+
+.overlay {
+  position: fixed;
+  z-index: 100;
+  opacity: 0.7;
+background: #000;
+width:100vw;
+height: 100vh;;
+}
+
+.sous-menu {
+  border-radius: 0rem 0rem 0rem 8rem;
+  background: linear-gradient(180deg, rgba(0, 80, 106, 0.00) 1.24%, #367386 37.48%);
+}

@@ -1,0 +1,75 @@
+.header-fond {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 271.1rem;
+  background-image: linear-gradient(
+    180deg,
+    #00506a 38.01%,
+    rgba(109, 150, 163, 0.8) 52.63%,
+    rgba(234, 231, 228, 0) 62.38%
+  );
+  background-position: top center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  .header-fond--image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/img-home.png');
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .header-fond--logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-image: url('../images/fd-dm-header.svg');
+    background-position: top center;
+    background-size: 3000px;
+    background-repeat: no-repeat;
+  }
+}
+
+body.page-template-expertise,
+body.bureau-detudes,
+body.compostage-de-proximite ,
+body.formations-animations  {
+  .header-fond {
+    .header-fond--image {
+      display: none;
+    }
+  }
+}
+
+body.formations-animations {
+  .header-fond {
+    height: 132.7rem;;
+    background: linear-gradient(180deg, #712222 27.12%, rgba(113, 34, 34, 0.70) 49.64%, rgba(234, 231, 228, 0.00) 72.16%);
+  }
+}
+
+body.compostage-de-proximite {
+  .header-fond {
+    height: 132.7rem;;
+    background: linear-gradient(180deg, #01743D 27.12%, rgba(1, 116, 61, 0.70) 49.64%, rgba(234, 231, 228, 0.00) 72.16%);
+  }
+}
+
+.logo {
+  background-image: url(../images/logo.svg);
+  background-repeat: no-repeat;
+  margin-left:4rem;
+  width:24rem;
+  height:9.3rem;
+}

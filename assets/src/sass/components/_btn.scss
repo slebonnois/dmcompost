@@ -1,0 +1,39 @@
+.btn {
+  background-color: white;
+  padding: 1.4rem 2.4rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5.1rem;
+  display: inline-block;
+  color: var(--texte) !important;
+  cursor:pointer;
+
+  &.btn--vert {
+    background-color: var(--vert);
+  }
+}
+
+.btn-decouvrir {
+  color: white;
+  font-family: Oswald;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  margin-top: 1.6rem;
+  position: relative;
+  padding-left: 2.5rem;
+  &:before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4rem;
+    height: 4.5rem;
+    display: inline-block;
+    background-image: url(../images/ico-fleche.svg);
+    background-repeat: no-repeat;
+  }
+}

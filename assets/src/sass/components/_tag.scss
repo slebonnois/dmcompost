@@ -1,0 +1,30 @@
+.tag {
+  color: var(--vert);
+  border: 1px solid var(--vert);
+  display: inline-block;
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+  justify-content: center;
+  align-items: center;
+
+ 
+}
+
+a.tag {
+  &:hover {
+    background-color: var(--vert);
+    color:var(--texte);
+  }
+}
+
+.tag-besoin {
+  border-radius: 0.4rem;
+background: var(--blanc, #FFF);
+display: inline-block;
+padding: 0.8rem 1.6rem;
+justify-content: center;
+align-items: center;
+  @extend .texte-m;
+  color:var(--vert);
+  margin-bottom: 0.8rem;
+}
