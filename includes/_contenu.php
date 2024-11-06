@@ -18,6 +18,13 @@ function getClass($id)
         $tempPost = get_post(wp_get_post_parent_id($id));
         return $tempPost->post_name;
     }
+    else if (strpos($templateSlug, 'cible') !== false) {
+        $tempPost = get_post($id);
+        return $tempPost->post_name;
+    } else {
+        $post = get_post($id);
+        return $post->post_name;
+    }
 }
 
 

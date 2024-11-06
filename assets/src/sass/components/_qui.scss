@@ -1,0 +1,187 @@
+.container-recompenses {
+  .recompenses-logos,
+  .labels-logos {
+    position: relative;
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.6);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+
+    .recompense {
+      flex: 1 1 0;
+      width: 0;
+
+      .texte-s {
+        height: 5.7rem;
+        vertical-align: middle;
+        color: var(--be);
+      }
+      .recompense-logo {
+        height: 9.8rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      }
+    }
+    .titre-xl {
+      position: absolute;
+      left: 0;
+      top: -3rem;
+    }
+  }
+
+  .recompenses-logos {
+    padding: 6rem 3rem 3rem 3rem;
+  }
+  .labels-logos {
+    padding: 6rem 0 3rem 0;
+    height: 100%;
+  }
+
+  img {
+    max-height: 8rem;
+    max-width: 16rem;
+  }
+}
+
+.container-fournisseurs {
+  margin-top: 6rem;
+  .fournisseurs-logos {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    img {
+      max-height: 8rem;
+      max-width: 12rem;
+    }
+  }
+}
+
+.container-equipe {
+  .col {
+    margin-bottom: 3.2rem;
+  }
+}
+.equipe {
+  aspect-ratio: 27.3/33.8;
+  border-radius: 0.8rem;
+  filter: drop-shadow(1px 5px 8px rgba(0, 0, 0, 0.2));
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    .equipe-contenu {
+      opacity: 1;
+    }
+  }
+
+  .equipe-contenu {
+    padding: 4rem 3.2rem;
+    color: white;
+    position: relative;
+    height: 100%;
+
+    opacity: 0;
+    transition: all 0.3s;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: stretch;
+
+    > * {
+      z-index: 10;
+    }
+
+    .titre-m,
+    .texte-l {
+      margin-bottom: 1.6rem;
+    }
+
+    .texte-l {
+      position: relative;
+      vertical-align: middle;
+
+      display: grid;
+      align-items: center;
+      padding-left: 5rem;
+      &:before {
+        content: ' ';
+        width: 4rem;
+        height: 4rem;
+        display: inline-block;
+        position: absolute;
+        top: 5px;
+        background-image: url(../images/logo-petit.svg);
+      }
+    }
+    .equipe-contenu-fond {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      background: var(
+        --marron-DM,
+        linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+        #3f2204
+      );
+    }
+  }
+}
+
+.overlay-equipe {
+  &.is-active {
+    opacity: 0.6;
+    pointer-events: all;
+  }
+}
+
+.overlay-detail-equipe {
+  position: fixed;
+  z-index: 150;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+
+  .detail-equipe {
+    width: 96.3rem;
+    height: 58.9rem;
+    border-radius: 0.8rem;
+    background: var(--blanc, #fff);
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+  }
+
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}

@@ -36,4 +36,22 @@ const init = function (e) {
         window.open('https://reseaucompost.org/se-preinscrire?session=' + code)
       })
   }
+
+  // Equipe
+  if (document.querySelector('.container-equipe')) {
+    const equipes = document.querySelectorAll('.equipe')
+
+    equipes.forEach(element => {
+      element.addEventListener('click', function (e) {
+        e.preventDefault()
+        document.querySelector('.overlay-equipe').classList.add('is-active')
+        document.querySelector('body').classList.add('no-scroll')
+        document.querySelector('.overlay-detail-equipe').classList.add('is-active')
+
+      })
+    });
+
+  }
+
+
 }

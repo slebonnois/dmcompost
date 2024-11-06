@@ -1,8 +1,18 @@
+body.page-template-cible {
+
+  .header-fond {
+    background-image: linear-gradient(180deg, #351D06 13.55%, rgba(53, 29, 6, 0.70) 38.56%, rgba(234, 231, 228, 0.00) 69.9%);
+  }
+  .header-fond--image,
+  .header-fond--logo   {
+    display: none;
+  }
+
+}
+
+
 .container-cible {
   margin-top: 3.3rem;
-
-  overflow: hidden;
-
   .row {
     position: relative;
     &:first-child {
@@ -30,7 +40,7 @@
     height: 84rem;
 
     opacity: 0.6;
-    background-image: url(../images/fd-collectivite.png)  ;
+
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
@@ -38,14 +48,15 @@
 
   .cible-illu {
     position: absolute;
+    pointer-events: none;
     z-index: 1;
     right: 0;
     width: 100%;
-    height: 50rem;
-    top: -270px;
-    background-image: url(../images/illu-cible1.png);
+    height: 60rem;
+    top: -177px;
+  
     background-repeat: no-repeat;
-    background-position: top right;
+    background-position: bottom right;
   }
 
   .row-contenu {

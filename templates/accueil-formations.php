@@ -4,7 +4,6 @@
 */
 get_header();
 $c = get_fields();
-$services = getServices($post->ID);
 $formations = getFormations();
 ?>
 
@@ -199,7 +198,7 @@ $formations = getFormations();
 
 	<div class="container zone-contenus">
 
-		<div class="row row-chiffres">
+		<div class="row row-chiffres quelques-chiffres">
 			<div class="col col-12 col-lg-10 offset-lg-1">
 				<div class="row ">
 					<div class="col col-12">

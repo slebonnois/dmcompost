@@ -257,3 +257,82 @@ body {
   padding-left: 6rem !important;
 }
 
+.row-chiffres.quelques-chiffres {
+  padding: 5rem 0 6rem 0;
+  .texte-xxl {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .chiffre {
+    color: var(--vert);
+    text-align: center;
+    line-height: normal;
+  }
+  .titre-s {
+    text-align: center;
+  }
+}
+
+body.formations-animations {
+  .row-chiffres.quelques-chiffres {
+    .texte-xxl {
+      color: var(--form);
+    }
+
+    .chiffre {
+      color: var(--vert);
+    }
+    .titre-s {
+      color: var(--form);
+    }
+  }
+}
+
+.picto {
+  margin: calc(5.2rem / 2) 0;
+  .picto-image {
+    width: 11.2rem;
+    height: 11.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+
+    &.picto-formation-1 {
+      background-image: url(../images/ico-formation1.svg);
+    }
+    &.picto-formation-2 {
+      background-image: url(../images/ico-formation2.svg);
+    }
+    &.picto-formation-3 {
+      background-image: url(../images/ico-formation3.svg);
+    }
+    &.picto-formation-4 {
+      background-image: url(../images/ico-formation4.svg);
+    }
+
+    &.picto-home-1 {
+      background-image: url(../images/ico-home-1.svg);
+    }
+    &.picto-home-2 {
+      background-image: url(../images/ico-home-2.svg);
+    }
+    &.picto-home-3 {
+      background-image: url(../images/ico-home-3.svg);
+    }
+    &.picto-home-4 {
+      background-image: url(../images/ico-home-4.svg);
+    }
+  }
+
+  .picto-texte {
+    margin-top: 0.5rem;
+    height: 8.4rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+}

@@ -25,8 +25,8 @@ $c = get_fields();
 		<div class="col col-12 ">
 
 			<div class="row">
-				<div class="cible-illu"></div>
-				<div class="cible-fond "></div>
+				<div class="cible-illu" style="background-image:url('<?php echo $c['visuels']['personnage']['url'] ?>')"></div>
+				<div class="cible-fond " style="background-image:url('<?php echo $c['visuels']['fond']['url'] ?>')"></div>></div>
 				<div class="col col-lg-5 offset-1 ">
 					<div class="cible-header ">
 						<h1 class="titre-xxl"><?php the_title(); ?></h1>
@@ -59,8 +59,11 @@ $c = get_fields();
 
 						<div class="titre-m"><?php echo $besoin['titre'] ?></div>
 						<div class="texte-m"><?php echo $besoin['description'] ?></div>
-
-						<a href="<?php echo $besoin['lien'] ?>" class="btn btn--vert">+ d’infos</a>
+						<?php 
+							if ( !empty($besoin['lien'] )) $lien = $besoin['lien']; 
+							else $lien =get_permalink($besoin['lien_service']);
+						 ?>
+						<a href="<?php echo $lien ?>" class="btn btn--vert">+ d’infos</a>
 					</div>
 
 					<div class="col col-12 col-lg-5 row-contenu--image">
