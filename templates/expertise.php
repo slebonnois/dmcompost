@@ -23,7 +23,7 @@ $services = getServices($post->ID);
 
 <div class="container container-expertise">
 	<div class="row">
-		<div class="col col-12">
+		<div class="col col-12 col-lg-8 offset-lg-2">
 			<h1 class="titre-xxl"><?php the_title(); ?></h1>
 			<div class="texte-xl"><?php echo $c['introduction'] ?></div>
 		</div>
@@ -39,7 +39,7 @@ $services = getServices($post->ID);
 						<a class="card " href="<?php the_permalink($service->ID) ?>">
 							<div class="card-header">
 								<div class="row ">
-									<div class="texte-l col  my-auto"><?php echo $service->post_title ?></div>
+									<div class="texte-l col  my-auto d-flex align-items-center"><strong><?php echo $service->post_title ?></strong></div>
 									<div class="col col-auto"><img
 											src="<?php echo $service->fields['icones']['icone']['url'] ?>">
 									</div>

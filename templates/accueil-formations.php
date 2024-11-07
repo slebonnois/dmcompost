@@ -31,11 +31,11 @@ $formations = getFormations();
 
 
 
-<div class="container">
+<div class="container container-large">
 	<div class="row">
 
 		<?php foreach ($formations as $formation): ?>
-			<div class="col col-12 col-lg-4 col-xl-3 ">
+			<div class="col col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3 ">
 				<a class="card card-formation" href="<?php the_permalink($formation->ID) ?>">
 					<?php if ($formation->fields['type'] == 1): ?>
 						<div class="card-formation--type">
@@ -47,7 +47,12 @@ $formations = getFormations();
 						</div>
 					<?php endif; ?>
 
-					<h2 class="titre-m"><?php echo $formation->post_title ?></h2>
+					<h2 class="titre-m">
+						<?php 
+						if (!empty( $formation->fields['titre_formate']['titre_1']) )  echo $formation->fields['titre_formate']['titre_1'];
+						else echo $formation->post_title; 
+						?>
+					</h2>
 
 					<div class="card-formation--detail">
 						<?php foreach ($formation->fields['configuration']['lieu']['type_lieu'] as $lieu): ?>

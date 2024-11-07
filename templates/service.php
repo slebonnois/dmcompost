@@ -22,13 +22,13 @@ $cibles = getCibles(get_the_id());
 
 <div class="container container-expertise">
 	<div class="row">
-		<div class="col col-12">
+		<div class="col col-12 col-lg-8 offset-lg-2">
 			<h1 class="titre-xxl"><?php the_title(); ?></h1>
 		</div>
 	</div>
 
 	<div class="row row-cibles">
-		<div class="col col-12">
+		<div class="col col-12 ">
 			<?php foreach ($cibles as $cible): ?>
 				<a href="<?php echo $cible['lien'] ?>" class="tag"><?php echo $cible['titre'] ?></a>
 			<?php endforeach; ?>
@@ -36,9 +36,9 @@ $cibles = getCibles(get_the_id());
 	</div>
 </div>
 
-<div class="container container-page ">
+<div class="container container-page zone-contenus">
 
-	<div class="row">
+	<div class="row row-intro-service">
 
 		<div class="col col-12 col-lg-8 offset-lg-2 align-center">
 			<img class="service-icone" src="<?php echo $c['icones']['icone']['url'] ?>">
@@ -59,8 +59,16 @@ $cibles = getCibles(get_the_id());
 			</div>
 		</div>
 	<?php endforeach; ?>
+</div>
 
-	<?php if ($c['accompagne']['texte_1'] == true): ?>
+
+
+<?php if ($c['accompagne']['texte_1'] == true): ?>
+	<div class="conteneur-vague">
+<div class="vague"></div>
+</div>
+
+	<div class="container  zone-contenus">
 		<div class="row ">
 			<div class="col col-12 col-lg-10 offset-lg-1">
 				<div class="row row-accompagne">
@@ -73,8 +81,7 @@ $cibles = getCibles(get_the_id());
 
 							</div>
 							<div class="col-demi">
-								<div class="card-accompagne card-accompagne-image"
-									style="background-image:url(<?php echo $c['accompagne']['acc_image']['url'] ?>)">
+								<div class="card-accompagne card-accompagne-image">
 									<div class="filtre"></div>
 								</div>
 							</div>
@@ -107,10 +114,12 @@ $cibles = getCibles(get_the_id());
 				</div>
 			</div>
 		</div>
-	<?php endif; ?>
+	</div>
+<?php endif; ?>
 
 
-	<?php if ($c['afficher_chiffres'] == true): ?>
+<?php if ($c['afficher_chiffres'] == true): ?>
+	<div class="container  container-chiffres zone-contenus">
 		<div class="row row-chiffres">
 			<div class="col col-12 col-lg-10 offset-lg-1">
 				<div class="row ">
@@ -135,10 +144,11 @@ $cibles = getCibles(get_the_id());
 				</div>
 			</div>
 		</div>
-	<?php endif; ?>
-</div>
+	</div>
+<?php endif; ?>
 
-<?php require_once( get_stylesheet_directory().'/includes/_realisations.php');  ?>
+
+<?php require_once(get_stylesheet_directory() . '/includes/_realisations.php'); ?>
 
 
 <div class="zone-contact">

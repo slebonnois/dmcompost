@@ -41,12 +41,14 @@ nav {
     align-items: flex-start;
     .menu-conteneur li {
       padding-left: 1.6rem;
-
       &:last-child {
-        background: rgba(0, 0, 0, 0.4);
         padding-left: 0;
       }
     }
+  }
+
+  .conteneur-menu-contact {
+    margin-right:-1.5rem;
   }
 
   .menu-contact {
@@ -54,7 +56,7 @@ nav {
     height: 4.8rem;
     //padding: calc(1.2rem + 2px) calc(1.6rem + 2px);
     padding: 1.2rem 1.6rem;
-    padding-right: 2rem;
+    padding-right: 3.5rem;
     border-bottom: 4px solid transparent;
     border-left: 4px solid transparent;
     align-items: center;
@@ -62,6 +64,10 @@ nav {
     flex-shrink: 0;
     border-radius: 0rem 0rem 0rem 1.6rem;
     background: rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      background-color: var(--vert);
+    }
   }
   .menu-vous-etes {
     height: 4.8rem;
@@ -76,7 +82,7 @@ nav {
     border-radius: 0rem 0rem 0rem 1.6rem;
     border-bottom: 4px solid white;
     border-left: 4px solid white;
-    background: var(--marron1, #eae7e4);
+    background: var(--marron1);
     position: relative;
 
     &:after {
@@ -92,12 +98,20 @@ nav {
       background-repeat: no-repeat;
       background-size: cover;
     }
+
+    &:hover {
+      color:white !important;
+      background: var(--fond1);
+    }
   }
 }
 
 .conteneur-menu {
   color: white;
 
+  &:hover .menu{
+    opacity: 1 !important;
+  }
 
   &.prox {
     .sous-menu{
@@ -184,6 +198,7 @@ nav {
   left: 0;
   right: 0;
   height: 0px;
+  pointer-events: none;
 
   .sous-menu {
     padding: 9rem 7rem;
@@ -192,6 +207,7 @@ nav {
     pointer-events: none;
     right: 0;
     width: 55%;
+    top:1rem;
     min-width: 84rem;
     height: 52rem;
     z-index: 110;
@@ -253,4 +269,56 @@ nav {
       }
     }
   }
+}
+
+.container-chemin a,
+.menu-roll {
+    position: relative;
+    display: inline-block;
+    &:after {
+      content:" ";
+      display:block;
+      transition: all .2s;
+      width: 0;
+      height: 0.2rem;
+      border-radius: 4rem;
+      background: var(--vert);
+      margin-top:0.8rem;
+    }
+
+    &:hover,
+    &.is-active {
+      &:after {
+        width:100%;
+      }
+    }
+  }
+
+  
+body.bureau-detudes {
+  .conteneur-menu.prox,
+  .conteneur-menu.form {
+    .menu {
+      opacity: 0.5;
+    }
+  } 
+}
+
+body.compostage-de-proximite {
+  .conteneur-menu.be,
+  .conteneur-menu.form {
+    .menu {
+      opacity: 0.5;
+    }
+  } 
+}
+
+
+body.formations-animations {
+  .conteneur-menu.be,
+  .conteneur-menu.prox {
+    .menu {
+      opacity: 0.5;
+    }
+  } 
 }

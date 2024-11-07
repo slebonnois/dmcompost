@@ -21,10 +21,27 @@
     .texte-xxl {
       color: white;
     }
+    .btn-texte {
+      color:var(--vert);
+      &:hover {
+        color:white;
+      }
+    }
+    &:hover {
+      background: linear-gradient(93deg, #825A0F 23.71%, #571A1A 84.38%);
+    }
   }
 
   .btn {
     margin-left: 2.4rem;
+    z-index:10;
+  }
+
+  .btn-preinscription {
+    &:hover {
+      color:white !important;
+      background-color: var(--marron2);
+    }
   }
   strong {
     color: white;
@@ -82,11 +99,16 @@
   align-content: center;
   align-items: center;
 
-  margin-bottom: 10rem;
+  margin-bottom: 16rem;
 }
 
 a.bloc-contact {
   &:hover {
     width: 100rem;
+  background: linear-gradient(93deg, #95A205 50.21%, #748910 99.32%);
+    .btn {
+      color:white !important;
+      background-color: var(--marron2);
+    }
   }
 }

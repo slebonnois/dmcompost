@@ -6,12 +6,16 @@
   padding: 0.8rem;
   justify-content: center;
   align-items: center;
-
+margin:0 0.8rem;
  
 }
 
-a.tag {
-  &:hover {
+
+a.tag,
+.tag-reference  {
+  cursor:pointer;
+  &:hover,
+  &.is-active {
     background-color: var(--vert);
     color:var(--texte);
   }
@@ -28,3 +32,4 @@ align-items: center;
   color:var(--vert);
   margin-bottom: 0.8rem;
 }
+

@@ -1,3 +1,73 @@
+body.qui-sommes-nous {
+  .row-contenu--texte .texte-m {
+    color: white !important;
+  }
+
+  .citation {
+    color: white !important;
+  }
+  .row-accroche {
+    margin-top: 6rem;
+  }
+
+  .row-contenu {
+    padding: 6rem 0;
+  }
+
+  .row-contenu:last-child {
+    .row-contenu--texte {
+      order: 0;
+      text-align: right;
+      @include make-col-offset(1, 12);
+      > * {
+        margin-right: 4rem;
+      }
+    }
+    .row-contenu--image {
+      margin-left: 0;
+      order: 1;
+    }
+  }
+}
+
+.container-valeurs {
+  .titre-xl {
+    margin-bottom: 4.1rem;
+  }
+
+  .texte-xl {
+    margin-top: 1.6rem;
+  }
+  .texte-m {
+    margin-top: 0.8rem;
+  }
+
+  .col .col {
+    margin-bottom: 4.7rem;
+  }
+}
+
+.ico-qui {
+  position: absolute;
+  width: 14rem;
+  height: 14rem;
+  left: 50%;
+  //top:-6rem;
+  transform: translateX(-50%);
+  background-image: url(../images/ico-qui.svg),
+    url(../images/ico-qui-centre.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 100;
+}
+.container-header-qui {
+  color: white !important;
+  padding: 6rem 0 7rem 0;
+
+  .titre-xxl {
+    padding-bottom: 2.4rem;
+  }
+}
 .container-recompenses {
   .recompenses-logos,
   .labels-logos {
@@ -44,6 +114,10 @@
   .labels-logos {
     padding: 6rem 0 3rem 0;
     height: 100%;
+
+    img {
+      max-height: 10rem;
+    }
   }
 
   img {
@@ -53,7 +127,7 @@
 }
 
 .container-fournisseurs {
-  margin-top: 6rem;
+  margin-top: 2rem;
   .fournisseurs-logos {
     margin-top: 0.5rem;
     display: flex;
@@ -70,6 +144,8 @@
 }
 
 .container-equipe {
+  margin-top: 5rem;
+
   .col {
     margin-bottom: 3.2rem;
   }
@@ -105,32 +181,21 @@
     align-content: center;
     align-items: stretch;
 
+    pointer-events: none;
+
+    .titre-m,
+    .texte-l,
+    .texte-m {
+      margin-bottom: 1.6rem;
+    }
+    .texte-m {
+      font-weight: 500;
+    }
+
     > * {
       z-index: 10;
     }
 
-    .titre-m,
-    .texte-l {
-      margin-bottom: 1.6rem;
-    }
-
-    .texte-l {
-      position: relative;
-      vertical-align: middle;
-
-      display: grid;
-      align-items: center;
-      padding-left: 5rem;
-      &:before {
-        content: ' ';
-        width: 4rem;
-        height: 4rem;
-        display: inline-block;
-        position: absolute;
-        top: 5px;
-        background-image: url(../images/logo-petit.svg);
-      }
-    }
     .equipe-contenu-fond {
       position: absolute;
       left: 0;
@@ -142,7 +207,7 @@
       background: var(
         --marron-DM,
         linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
-        #3f2204
+        var(--marron2)
       );
     }
   }
@@ -162,26 +227,113 @@
   height: 100%;
   top: 0;
   left: 0;
+  opacity: 0;
+  transition: all 0.3s;
 
   display: none;
 
   &.is-active {
     display: block;
+    opacity: 1;
   }
 
+  .col {
+    position: relative;
+  }
+  .detail-equipe-portrait {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
   .detail-equipe {
+    overflow: hidden;
     width: 96.3rem;
     height: 58.9rem;
+    max-width: 100%;
     border-radius: 0.8rem;
     background: var(--blanc, #fff);
     position: absolute;
-    left:50%;
-    top:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .row {
+      height: 100%;
+    }
   }
 
+  .equipe-tag {
+    height: 14rem;
+    width: 14rem;
+    position: absolute;
+    top: 6rem;
+    right: 3.5rem;
+    background-image: url(../images/fd-tag-equipe.svg);
+    background-repeat: no-repeat;
+    div {
+      
+      color: var(--be);
+      text-align: center;
+      font-family: Oswald;
+      font-size: 1.6rem;
+      transform: rotate(-7deg) translate(-0.5rem,5.5rem);
+      text-transform: uppercase;
+    }
+  }
+
+  .detail-equipe-texte {
+    padding: 0 8rem 6rem 8rem;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: flex-start;
+
+    height: 100%;
+    .titre-m,
+    .texte-l,
+    .detail-equipe-titre {
+      margin-bottom: 1.6rem;
+    }
+  }
 }
 
 .no-scroll {
   overflow: hidden !important;
+}
+
+.puce-dm {
+  position: relative;
+  vertical-align: middle;
+
+  display: grid;
+  align-items: center;
+  padding-left: 5rem;
+  min-height: 5rem;
+  &:before {
+    content: ' ';
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    background-image: url(../images/logo-petit.svg);
+  }
+}
+
+.detail-equipe-ferme {
+  position: absolute;
+  right: 1.6rem;
+  top: 0.8rem;
+  width: 2.9rem;
+  height: 2.9rem;
+  background-image: url(../images/ico-ferme.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }

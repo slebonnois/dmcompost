@@ -28,6 +28,13 @@ body.page-template-formation {
     > div {
       border-radius: 0.4rem;
     }
+
+    .formation-certifiante {
+      background-position: left center;
+        color:var(--texte);
+    margin-left:2rem;
+    }
+    
   }
 
   .formation-certifiante {
@@ -183,7 +190,7 @@ body.page-template-formation {
   img {
     max-height: 12rem;
     max-width: 17rem;
-    padding: 0 2.4rem;
+ 
   }
 
   .ils_nous_font_confiance-logos {

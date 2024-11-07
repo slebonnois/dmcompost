@@ -1,6 +1,12 @@
-<?php get_header();
-$c = get_fields(); ?>
-<div>
+<?php
+get_header();
+$c = get_fields();
+
+foreach ($c['equipe'] as $k => $e) {
+    $c['equipe'][$k]->fields = get_fields($e->ID);
+}
+?>
+
 
     <div class="container container-chemin">
         <div class="row">
@@ -14,7 +20,7 @@ $c = get_fields(); ?>
         </div>
     </div>
 
-    <div class="container ">
+    <div class="container container-header-qui">
         <div class="row">
             <div class="col col-10 offset-1">
                 <div class="titre-xxl align-center">Qui sommes-nous</div>
@@ -28,7 +34,7 @@ $c = get_fields(); ?>
     </div>
 
 
-    <div class="container ">
+    <div class="container zone-contenus">
         <div class="ico-qui"></div>
 
         <div class="row row-contenu">
@@ -43,7 +49,7 @@ $c = get_fields(); ?>
         </div>
 
         <div class="row">
-            <div class="col col-12 align-center">
+            <div class="col col-12 align-center citation ">
                 <?php echo $c['contenus']['texte_central'] ?>
             </div>
         </div>
@@ -136,15 +142,14 @@ $c = get_fields(); ?>
             <div class="col col-xl-3  col-lg-4 col-md-6 col-12 my-auto">
                 <div class="titre-xl">L’ÉQUIPE<br> DM COMPOST</div>
             </div>
-            <?php foreach ($c['equipe'] as $e):
-                $e->fields = get_fields($e->ID); ?>
+            <?php foreach ($c['equipe'] as $e): ?>
                 <div class="col col-xl-3  col-lg-4 col-md-6 col-12 ">
                     <div class="equipe" data-id="<?php echo $e->ID ?>"
                         style="background-image:url('<?php echo $e->fields['photo_1']['sizes']['medium'] ?>')">
-
+                       
                         <div class="equipe-contenu">
                             <div class="titre-m"><?php echo $e->post_title ?></div>
-                            <div class="texte-l"><strong><?php echo $e->fonction ?></strong></div>
+                            <div class="texte-l puce-dm"><strong><?php echo $e->fonction ?></strong></div>
                             <div class="texte-m"><?php echo $e->fields['titre'] ?></div>
                             <div class="equipe-contenu-fond"></div>
                         </div>
@@ -165,20 +170,31 @@ $c = get_fields(); ?>
 
     </main>
 
-    <div class="overlay-detail-equipe">
-        <div class="detail-equipe">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-6 detail-equipe-portrait">
+    <?php foreach ($c['equipe'] as $e): ?>
+        <div class="overlay-detail-equipe" id="equipe-<?php echo $e->ID ?>">
+            <div class="detail-equipe">
 
+                <div class="row">
+                    <div class="col col-6 ">
+                        <div class="detail-equipe-portrait"
+                            style="background-image:url('<?php echo $e->fields['photo_2']['sizes']['medium'] ?>')"></div>
                     </div>
                     <div class="col col-6">
-Texte
+                        <div class="detail-equipe-ferme"></div>
+                        <div class="equipe-tag"><div><?php echo $e->fields['surnom'] ?></div></div>
+                        <div class="detail-equipe-texte">
+                            <div class="titre-xl"><?php echo str_replace($e->fields['nom'],'',$e->post_title) ?><br><?php echo $e->fields['nom'] ?></div>
+                            <div class="texte-l puce-dm"><strong><?php echo $e->fonction ?></strong></div>
+                            <div class="texte-s detail-equipe-titre"><strong><?php echo $e->fields['titre'] ?></strong></div>
+                            <div class="texte-s"><?php echo $e->fields['cv'] ?></div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
-    </div>
+    <?php endforeach; ?>
+
     <div class="overlay overlay-equipe"></div>
 
     <?php get_footer(); ?>

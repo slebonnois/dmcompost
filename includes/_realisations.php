@@ -2,6 +2,7 @@
 <?php 
 
 $reals = getRealisations(get_the_id()); 
+$template = getTemplate(get_the_ID());
 
 ?>
 
@@ -35,7 +36,12 @@ $reals = getRealisations(get_the_id());
 
 
 				<div class="col-lg-5 col-12 offset-lg-6">
-					<div class="titre-xl">Nos réalisations</div>
+					<?php if ($template !='formation') : ?>
+						<div class="titre-xl">Nos réalisations</div>
+					<?php else : ?>
+						<div class="titre-xl">Témoignages</div>
+					<?php endif; ?>
+				
 					<div class="splide splide-textes">
 						<div class="splide__track">
 							<ul class="splide__list">

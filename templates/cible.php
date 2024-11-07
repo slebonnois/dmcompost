@@ -53,6 +53,13 @@ $c = get_fields();
 				 ?>
 
 				<div class="row row-contenu">
+
+				<div class="col col-12 col-lg-5 row-contenu--image">
+						<div class="image-contenu" style="background-image:url(<?php echo $besoin['image']['url'] ?>)">
+							<div class="filtre"></div>
+						</div>
+					</div>
+					
 					<div class="col col-12 col-lg-5 row-contenu--texte  my-auto">
 
 						<div class="tag-besoin"><strong>Besoin n°<?php echo $i ?></strong></div>
@@ -66,11 +73,7 @@ $c = get_fields();
 						<a href="<?php echo $lien ?>" class="btn btn--vert">+ d’infos</a>
 					</div>
 
-					<div class="col col-12 col-lg-5 row-contenu--image">
-						<div class="image-contenu" style="background-image:url(<?php echo $besoin['image']['url'] ?>)">
-							<div class="filtre"></div>
-						</div>
-					</div>
+					
 				</div>
 				
 				<?php $i++; ?>

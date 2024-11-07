@@ -7,8 +7,7 @@ $c = get_fields(); ?>
         <div class="row">
             <div class="col col-12 col-lg-5 offset-lg-1">
                 <div class="titre-l">
-                    Nous concevons des <strong>solutions sur mesure</strong> et vous accompagnons dans le processus de
-                    <strong>valorisation de vos déchets organiques.</strong>
+                    <?php the_content() ?>
                 </div>
                 <div class="btn-decouvrir ">
                     DÉCOUVRIR
@@ -26,7 +25,7 @@ $c = get_fields(); ?>
                                 $class = "titre-s"; ?>
                             <?php endif; ?>
                             <li><a href="/<?php echo $cible->post_name ?>"
-                                    class="<?php echo $class ?>"><?php echo $cible->post_title ?></a></li>
+                                    class="<?php echo $class ?>"><div class="lien"><?php echo $cible->fields['titre_formate']  ?></div></a></li>
                         <?php endforeach; ?>
 
                     </ul>
@@ -62,7 +61,7 @@ $c = get_fields(); ?>
             <?php endforeach; ?>
 
             <div class="col col-lg-4 col-12">
-                <a class="card card-expertise card-formation " href="/formations-animations/">
+                <a class="card card-expertise card-formation-animations " href="/formations-animations/">
                     <div class="card-header">
 
                         <div class=""><img src="<?php echo get_field('visuels', 101)['icone']['url'] ?>"></div>
@@ -80,12 +79,15 @@ $c = get_fields(); ?>
         </div>
 
     </div>
-
+<div class="conteneur-vague">
+<div class="vague"></div>
+</div>
     <div class="container zone-contenus">
+    
         <div class="row">
             <div class="col col-lg-4 offset-lg-2 col-12 my-auto">
                 <div class="titre-xl">
-                POURQUOI FAIRE APPEL à DM COMPOST
+                POURQUOI<br> FAIRE APPEL<br> à DM&nbsp;COMPOST
                 <a href="/qui-sommes-nous" class="btn btn--vert">Qui sommes-nous</a>
                 </div>
             </div>

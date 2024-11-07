@@ -51,7 +51,9 @@
     "@splidejs/splide": "^4.1.4",
     "bootstrap": "^5.3.3",
     "custom-select": "^1.1.15",
-    "file-loader": "^6.2.0"
+    "file-loader": "^6.2.0",
+    "lenis": "^1.1.16",
+    "mixitup": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",

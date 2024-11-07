@@ -11,6 +11,9 @@
   --be: #00506a;
   --prox: #01743D;
   --form: #712222;
+
+  --marron1: #eae7e4;
+  --marron2: #3F2204;
 }
 
 // Marges
@@ -22,7 +25,7 @@
 
 @media (min-width: 768px) {
   :root {
-    --margin: 16rem;
+    --margin: 12rem;
     --gutter: calc(3.2rem / 2);
   }
 }
@@ -38,3 +41,4 @@
 :root {
   --filtre-photos: linear-gradient(289deg, #bcc602 24.81%, #00506a 90.42%);
 }
+

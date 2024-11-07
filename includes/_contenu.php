@@ -33,6 +33,7 @@ function loadExpertises()
     $args = array(
         'post_type' => 'page', //it is a Page right?
         'post_status' => 'publish',
+        'numberposts' => -1,
         'meta_query' => array(
             array(
                 'key' => '_wp_page_template',
@@ -55,6 +56,7 @@ function loadCibles()
     $args = array(
         'post_type' => 'page', //it is a Page right?
         'post_status' => 'publish',
+        'numberposts' => -1,
         'meta_query' => array(
             array(
                 'key' => '_wp_page_template',
@@ -79,6 +81,7 @@ function getFormations() {
     $args = array(
         'post_type' => 'page', //it is a Page right?
         'post_status' => 'publish',
+        'numberposts' => -1,
         'meta_query' => array(
             array(
                 'key' => '_wp_page_template',
@@ -116,7 +119,7 @@ function getTemplate($id) {
 
     $type = str_replace('templates/','',$template);
     $type = str_replace('.php', '',$type);
-    return $type;
+    return trim($type);
 }
 
 function getRealisations($id)

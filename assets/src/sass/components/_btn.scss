@@ -6,11 +6,22 @@
   border-radius: 5.1rem;
   display: inline-block;
   color: var(--texte) !important;
+  transition: all .2s;
   cursor:pointer;
 
   &.btn--vert {
     background-color: var(--vert);
+
+    &:hover {
+      background-color: white;
+    }
   }
+
+  &:hover {
+    background-color: var(--vert);
+  }
+
+
 }
 
 .btn-decouvrir {
