@@ -2,7 +2,7 @@
 $GLOBALS['expertises'] = loadExpertises();
 $GLOBALS['cibles'] = loadCibles();
 $GLOBALS['class'] = getClass(get_the_id());
-$GLOBALS['formations'] =  getFormations();
+$GLOBALS['formations'] = getFormations();
 $template = getTemplate(get_the_ID());
 ?>
 <!DOCTYPE html>
@@ -28,10 +28,46 @@ $template = getTemplate(get_the_ID());
         <div class="menu-secondaire">
             <div class="menu-conteneur ">
                 <ul>
-                    <li><a href="/qui-sommes-nous" id="menu-qui" class="menu-s menu-roll <?php if($post->post_name=='qui-sommes-nous') echo 'is-active'?>">Qui sommes-nous</a></li>
-                    <li><a href="/references" id="menu-ref" class="menu-s menu-roll <?php if($post->post_name=='references')  echo 'is-active'?>">Références</a></li>
-                    <li class="conteneur-menu-contact"><a href="/contact" class="menu-s menu-contact">Contact</a></li>
-                    <li class=""><a href="" class="menu-s menu-vous-etes">Vous êtes</a></li>
+                    <li><a href="/qui-sommes-nous" id="menu-qui" class="menu-s menu-roll <?php if ($post->post_name == 'qui-sommes-nous')
+                        echo 'is-active' ?>">Qui
+                                sommes-nous</a></li>
+                        <li><a href="/references" id="menu-ref" class="menu-s menu-roll <?php if ($post->post_name == 'references')
+                        echo 'is-active' ?>">Références</a>
+                        </li>
+                        <li class="conteneur-menu-contact"><a href="/contact" class="menu-s menu-contact">Contact</a></li>
+                        <li class="">
+                            <div class="menu-s menu-vous-etes">
+                                <div>Vous êtes</div>
+
+                                <div class="container-sous-menu-cible">
+                                    <div class="sous-menu-cible">
+                                        <div class="texte-l"><strong>Nous répondons à vos besoins,<br>que vous soyez  :</strong></div>
+                                        <ul class="menu-cibles">
+                                        <?php foreach ($GLOBALS['cibles'] as $cible): ?>
+                                            <?php if ($cible->fields['cible_principale'] == true):
+                                                $class = "titre-s"; ?>
+                                            <?php else:
+                                                $class = "tag-typo"; ?>
+                                            <?php endif; ?>
+                                            <li>
+                                                <a href="/<?php echo $cible->post_name ?>" class="<?php echo $class ?>">
+                                                    
+                                                    <div class="lien">
+                                                        <div class="vignette-cible"></div>    
+                                                        <div><?php echo $cible->fields['genre'] ?> <?php echo $cible->post_title ?></div>
+                                                </div>
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                                <div class="overlay"></div>
+                            </div>
+
+                        </div>
+
+
+                    </li>
                 </ul>
             </div>
         </div>
@@ -41,7 +77,8 @@ $template = getTemplate(get_the_ID());
                 <ul>
                     <?php foreach ($GLOBALS['expertises'] as $expertise): ?>
                         <li class="conteneur-menu <?php echo $expertise->fields['code'] ?>">
-                            <a href="/<?php echo $expertise->post_name ?>" class="menu"><?php echo $expertise->post_title ?></a>
+                            <a href="/<?php echo $expertise->post_name ?>"
+                                class="menu"><?php echo $expertise->post_title ?></a>
                             <div class="conteneur-sous-menu">
                                 <div class="sous-menu ">
                                     <div class="row">
@@ -56,7 +93,7 @@ $template = getTemplate(get_the_ID());
                                                 <?php $services = getServices($expertise->ID);
                                                 foreach ($services as $service): ?>
                                                     <li>
-                                                        <a href="<?php echo get_permalink( $service->ID) ?>" class="titre-s">
+                                                        <a href="<?php echo get_permalink($service->ID) ?>" class="titre-s">
                                                             <div><?php echo $service->post_title ?></div>
                                                             <img
                                                                 src="<?php echo $service->fields['icones']['icone_menu']['url'] ?>">
@@ -80,9 +117,10 @@ $template = getTemplate(get_the_ID());
 
                                     <div class="col col-4 my-auto">
                                         <div class="titre-l">Formations & animations</div>
-                                        <div class="texte-m">Vous souhaitez acquérir des compétences en compostage de proximité, gaspillage alimentaire ou restauration durable et/ou vous reconvertir professionnellement ?</div>
-                                        <a href="/formations-animations"
-                                            class="btn btn--vert">Découvrir</a>
+                                        <div class="texte-m">Vous souhaitez acquérir des compétences en compostage de
+                                            proximité, gaspillage alimentaire ou restauration durable et/ou vous
+                                            reconvertir professionnellement ?</div>
+                                        <a href="/formations-animations" class="btn btn--vert">Découvrir</a>
                                     </div>
 
                                     <div class="col col-4 my-auto">
@@ -90,14 +128,14 @@ $template = getTemplate(get_the_ID());
                                             <li>
                                                 <div class="titre-s">FORMATIONS</div>
                                             </li>
-                                            <?php 
-                                            foreach ($GLOBALS['formations']  as $formation):
+                                            <?php
+                                            foreach ($GLOBALS['formations'] as $formation):
                                                 if ($formation->fields['type'] == 1): ?>
                                                     <li>
                                                         <a href="/formations-animations/<?php echo $formation->post_name ?>"
                                                             class="texte-s">
                                                             <div><?php echo $formation->post_title ?></div>
-                                                            <?php if ($formation->fields['configuration']['formation_certifiante'] == 1) : ?>
+                                                            <?php if ($formation->fields['configuration']['formation_certifiante'] == 1): ?>
                                                                 <div class="formation-certifiante texte-xs">Certifiante</div>
                                                             <?php endif; ?>
                                                         </a>
@@ -112,8 +150,8 @@ $template = getTemplate(get_the_ID());
                                             <li>
                                                 <div class="titre-s">ANIMATION</div>
                                             </li>
-                                            <?php 
-                                            foreach ($GLOBALS['formations']  as $formation):
+                                            <?php
+                                            foreach ($GLOBALS['formations'] as $formation):
                                                 if ($formation->fields['type'] != 1): ?>
                                                     <li>
                                                         <a href="/formations-animations/<?php echo $formation->post_name ?>"

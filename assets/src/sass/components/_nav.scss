@@ -48,7 +48,7 @@ nav {
   }
 
   .conteneur-menu-contact {
-    margin-right:-1.5rem;
+    margin-right: -1.5rem;
   }
 
   .menu-contact {
@@ -74,7 +74,7 @@ nav {
     display: inline-flex;
     padding: 1.2rem 1.6rem;
     padding-right: 6rem;
-
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
@@ -84,6 +84,7 @@ nav {
     border-left: 4px solid white;
     background: var(--marron1);
     position: relative;
+    z-index: 110;
 
     &:after {
       content: ' ';
@@ -98,10 +99,75 @@ nav {
       background-repeat: no-repeat;
       background-size: cover;
     }
-
+    .overlay {
+      left: 0;
+      transition: all .3s;
+    }
     &:hover {
-      color:white !important;
+      color: white !important;
       background: var(--fond1);
+
+      .overlay {
+        opacity: 0.7;
+      }
+      .container-sous-menu-cible {
+        display: block;
+      }
+    }
+  }
+
+  .container-sous-menu-cible {
+    display:none;
+    position: absolute;
+    z-index: 200;
+    right: 0;
+    top: 0;
+
+    .sous-menu-cible {
+      width: 49rem;
+      //min-height: 45.2rem;
+      border-radius: 0rem 0rem 0rem 8rem;
+      border-bottom: 8px solid white;
+      border-left: 8px solid white;
+      z-index: 110;
+      position: relative;
+      background-color: var(--marron1);
+      padding:4rem 0 2rem 0;
+
+      ul.menu-cibles {
+        margin-top:1.6rem;
+        li:first-child .lien {
+          border-top:1px solid transparent;
+        }
+        li {
+          padding-left:0;
+        }
+        .lien {
+          border-top:1px solid white;
+          padding-right: 4rem;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          align-content: center;
+          align-items: center;
+        }
+
+        .vignette-cible {
+          width: 6.2rem;
+          height: 6.2rem;
+          aspect-ratio: 1/1;
+          border-radius:50%;
+          background-color: white;
+          margin-right:1.6rem;
+        }
+      }
+
+      .texte-l {
+        color: var(--texte);
+        padding-left:4rem;
+      }
+
     }
   }
 }
@@ -109,13 +175,14 @@ nav {
 .conteneur-menu {
   color: white;
 
-  &:hover .menu{
+  &:hover .menu {
     opacity: 1 !important;
   }
 
   &.prox {
-    .sous-menu{
-      background-image: url(../images/fd-sous-menu.png), linear-gradient(180deg, #01743D 41.87%, #519A74 100%);
+    .sous-menu {
+      background-image: url(../images/fd-sous-menu.png),
+        linear-gradient(180deg, #01743d 41.87%, #519a74 100%);
     }
     &:hover {
       .menu {
@@ -127,11 +194,11 @@ nav {
   }
 
   &.form {
-
-    .sous-menu{
+    .sous-menu {
       min-width: 114.6rem;
       max-width: 100%;
-      background-image: url(../images/fd-sous-menu.png), linear-gradient(180deg, #712222 41.87%, #925655 100%);;
+      background-image: url(../images/fd-sous-menu.png),
+        linear-gradient(180deg, #712222 41.87%, #925655 100%);
     }
     &:hover {
       .menu {
@@ -207,31 +274,31 @@ nav {
     pointer-events: none;
     right: 0;
     width: 55%;
-    top:1rem;
+    top: 1rem;
     min-width: 84rem;
     height: 52rem;
     z-index: 110;
-    background-image: url(../images/fd-sous-menu.png), linear-gradient(180deg, #00506a 41.87%, #367386 100%);
+    background-image: url(../images/fd-sous-menu.png),
+      linear-gradient(180deg, #00506a 41.87%, #367386 100%);
     background-position: top left, top center;
     background-repeat: no-repeat;
 
-   display:flex;
-   flex-direction: row;
-   flex-wrap: nowrap;
-   justify-content: center;
-   align-content: center;
-   align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 
-   .texte-s {
-    font-weight: 600;
+    .texte-s {
+      font-weight: 600;
+    }
+    .formation-certifiante {
+      color: var(--texte2);
+      font-size: 1.1rem;
+    }
 
-   }
-   .formation-certifiante  {
-    color:var(--texte2);
-    font-size:1.1rem;
-  }
-   
-  .titre-l,
+    .titre-l,
     .texte-m {
       color: var(--texte2);
       margin-bottom: 1.6rem;
@@ -240,7 +307,7 @@ nav {
     ul {
       margin-left: 6rem;
       li {
-        padding-left:0;
+        padding-left: 0;
         width: 100%;
         a {
           display: flex;
@@ -252,9 +319,9 @@ nav {
 
           img {
             display: block;
-            margin-left:2rem;
+            margin-left: 2rem;
           }
-         
+
           div {
             flex: 1 1 auto;
           }
@@ -262,10 +329,9 @@ nav {
       }
       li:not(:last-child) {
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  
-          margin-bottom: 1.6rem;
-          padding-bottom: 1.6rem;
-      
+
+        margin-bottom: 1.6rem;
+        padding-bottom: 1.6rem;
       }
     }
   }
@@ -273,35 +339,34 @@ nav {
 
 .container-chemin a,
 .menu-roll {
-    position: relative;
-    display: inline-block;
-    &:after {
-      content:" ";
-      display:block;
-      transition: all .2s;
-      width: 0;
-      height: 0.2rem;
-      border-radius: 4rem;
-      background: var(--vert);
-      margin-top:0.8rem;
-    }
-
-    &:hover,
-    &.is-active {
-      &:after {
-        width:100%;
-      }
-    }
+  position: relative;
+  display: inline-block;
+  &:after {
+    content: ' ';
+    display: block;
+    transition: all 0.2s;
+    width: 0;
+    height: 0.2rem;
+    border-radius: 4rem;
+    background: var(--vert);
+    margin-top: 0.8rem;
   }
 
-  
+  &:hover,
+  &.is-active {
+    &:after {
+      width: 100%;
+    }
+  }
+}
+
 body.bureau-detudes {
   .conteneur-menu.prox,
   .conteneur-menu.form {
     .menu {
       opacity: 0.5;
     }
-  } 
+  }
 }
 
 body.compostage-de-proximite {
@@ -310,9 +375,8 @@ body.compostage-de-proximite {
     .menu {
       opacity: 0.5;
     }
-  } 
+  }
 }
-
 
 body.formations-animations {
   .conteneur-menu.be,
@@ -320,5 +384,71 @@ body.formations-animations {
     .menu {
       opacity: 0.5;
     }
-  } 
+  }
+}
+
+
+
+ul.menu-cibles {
+  padding-left: 0;
+  padding-top: 1.6rem;
+
+  li {
+    list-style: none;
+  
+    display: block;
+  
+    a {
+      color: var(--be);
+      text-decoration: none;
+      position: relative;
+      display: block;
+      cursor:pointer !important;
+
+      .lien {
+        padding: 1.6rem 0;
+        margin: 0 4rem;
+        border-top: 1px solid #c5bdb4;
+      }
+      p {
+        margin: 0;
+      }
+      &:after {
+        content: ' ';
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        right: 4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url(../images/ico-lien-cible.svg);
+  
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  
+    &:hover {
+  
+      + li {
+        .lien {
+          border-top:1px solid var(--marron1) !important;
+        }
+      }
+      a {
+        color: white;
+        background-color: var(--vert);
+        &:after {
+          background-color: white;
+          background-image: url(../images/ico-fleche-noire.svg);
+        }
+        .lien {
+          border-top: 1px solid var(--vert) !important;
+        }
+      }
+    }
+  
+  }
 }

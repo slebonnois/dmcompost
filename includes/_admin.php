@@ -151,12 +151,13 @@ function acf_load_services( $field ) {
     $field['choices'] = array();
 
     $args = array(
-        'post_type' => 'page', //it is a Page right?
+        'post_type' => 'page', 
         'post_status' => 'publish',   
+        'numberposts' => -1,
         'meta_query' => array(
             array(
                 'key' => '_wp_page_template',
-                'value' => 'templates/service.php', // folder + template name as stored in the dB
+                'value' => 'templates/service.php',
             )
         )
     );
@@ -166,8 +167,29 @@ function acf_load_services( $field ) {
         foreach( $posts as $post ) {        
             $field['choices'][ $post->ID ] = $post->post_title;
         }
+     
+    }
+    $field['choices'][] = '------------------';
+    $field['choices'][101] = 'Formations & Animations';
+    $args = array(
+        'post_type' => 'page',
+        'post_status' => 'publish',   
+        'numberposts' => -1,
+        'meta_query' => array(
+            array(
+                'key' => '_wp_page_template',
+                'value' => 'templates/formation.php', 
+            )
+        )
+    );
+   $posts = get_posts($args) ; 
+    if( is_array($posts) ) {
+        foreach( $posts as $post ) {        
+            $field['choices'][ $post->ID ] = $post->post_title;
+        }
         return $field;
     }
+   
    
 }
 add_filter('acf/load_field/name=lien_service', 'acf_load_services');

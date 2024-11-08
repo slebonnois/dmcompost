@@ -17,7 +17,7 @@ $c = get_fields(); ?>
             <div class="col col-12 col-lg-4 offset-lg-1 ">
                 <div class="card-cibles">
                     <div class="texte-m">Vous êtes :</div>
-                    <ul>
+                    <ul class="menu-cibles">
                         <?php foreach ($GLOBALS['cibles'] as $cible): ?>
                             <?php if ($cible->fields['cible_principale'] == true):
                                 $class = "titre-m"; ?>

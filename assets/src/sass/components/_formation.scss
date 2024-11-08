@@ -203,9 +203,35 @@ body.page-template-formation {
   }
 }
 
-
-
-
 .container-cta-formation {
   margin-top: calc(5.6rem - 3.2rem);
 }
+
+.formation-tarif-complement {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin-top:0.8rem;
+  margin-bottom:0.8rem;
+  .titre-m{
+    margin-right:0.8rem;
+    }
+}
+
+.formation-tarif {
+  * {color:var(--form) !important;}
+}
+
+.formation-tarif-principal {
+  * { color: var(--cat-formation, #A13202) !important; }
+  .ico-tarif {
+    &:before {
+      background-image: url(../images/ico-tarif-2.svg);
+    }
+  }
+}
+
+

@@ -1,15 +1,17 @@
 body.page-template-cible {
-
   .header-fond {
-    background-image: linear-gradient(180deg, #351D06 13.55%, rgba(53, 29, 6, 0.70) 38.56%, rgba(234, 231, 228, 0.00) 69.9%);
+    background-image: linear-gradient(
+      180deg,
+      #351d06 13.55%,
+      rgba(53, 29, 6, 0.7) 38.56%,
+      rgba(234, 231, 228, 0) 69.9%
+    );
   }
   .header-fond--image,
-  .header-fond--logo   {
+  .header-fond--logo {
     display: none;
   }
-
 }
-
 
 .container-cible {
   margin-top: 3.3rem;
@@ -54,81 +56,171 @@ body.page-template-cible {
     width: 100%;
     height: 60rem;
     top: -177px;
-  
+
     background-repeat: no-repeat;
     background-position: bottom right;
   }
+}
 
+body.page-template-cible:not(.particulier-enseignant) {
   .row-contenu {
     .titre-m,
-    .row-contenu--texte  {
-        margin-bottom:1.6rem;
+    .row-contenu--texte {
+      margin-bottom: 1.6rem;
 
-        .btn {
-          margin-top: 0.8rem;;
-        }
+      .btn {
+        margin-top: 0.8rem;
+      }
     }
     &:nth-child(even) {
-
       .row-contenu--texte {
         order: 0;
         @include make-col-offset(1, 12);
         > * {
           margin-right: 4rem;
         }
-        
       }
       .row-contenu--image {
-        order:1;
+        order: 1;
         @include make-col-offset(0, 12);
         > * {
           margin-left: 0rem;
         }
       }
 
+      .row-contenu--texte {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-end;
+        align-items: flex-end;
 
-        .row-contenu--texte {
-            
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            align-content: flex-end;
-            align-items: flex-end;
-
-            text-align: right;
+        text-align: right;
+      }
+    }
+    &:nth-child(odd) {
+      .row-contenu--texte {
+        order: 1;
+        @include make-col-offset(0, 12);
+        > * {
+          margin-left: 4rem;
         }
       }
-      &:nth-child(odd) {
-
-        .row-contenu--texte {
-          order: 1;
-          @include make-col-offset(0, 12);
-          > * {
-            margin-left: 4rem;
-          }
-         
-        }
-        .row-contenu--image {
-          order: 0;
-          @include make-col-offset(1, 12);
-          > * {
-            margin-right: 0rem;
-          }
-        }
-
-        .row-contenu--texte {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            align-content: flex-end;
-            align-items: flex-start;
-
-            text-align: left;
+      .row-contenu--image {
+        order: 0;
+        @include make-col-offset(1, 12);
+        > * {
+          margin-right: 0rem;
         }
       }
+
+      .row-contenu--texte {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-end;
+        align-items: flex-start;
+
+        text-align: left;
+      }
+    }
   }
-  
+}
 
+body.page-template-cible.particulier-enseignant {
+  .row-contenu {
+    &:nth-child(odd) {
+      .row-contenu--texte {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.conteneur-interlocuteur {
+  border-radius: 0.8rem;
+  background: var(--bureau-tude, #00506a);
+  padding: 5.5rem 7rem;
+  color: white;
+
+  .texte-s {
+    margin-top: 2em;
+  }
+}
+
+form.form-interlocuteur {
+  .form-radio {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .form-control {
+    margin-top: 0.8rem;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 1.2em;
+    line-height: 2.5rem;
+  }
+
+  .form-control:focus-within {
+    color: var(--form-control-color);
+  }
+
+  input[type='text'] {
+    width: 12.4rem;
+    height: 4.2rem;
+    padding: 0rem 1.2rem;
+    border-radius: 0.8rem;
+    background: var(--marron1);
+    border: 2px solid var(--marron1);
+    border: 0;
+    margin-top:0.8rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.9rem; /* 135.714% */
+    &.erreur {
+      border: 2px solid #FF6A6A;
+    }
+  }
+  input[type='radio'] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: var(--form-background);
+    /* Not removed via appearance */
+    margin: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid var(--marron1);
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+  }
+
+  input[type='radio']::before {
+    content: '';
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--vert);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+
+  input[type='radio']:checked::before {
+    transform: scale(1);
+  }
+
+  input[type='radio']:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  }
 }

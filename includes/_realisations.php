@@ -5,7 +5,7 @@ $reals = getRealisations(get_the_id());
 $template = getTemplate(get_the_ID());
 
 ?>
-
+	<?php if (!empty($reals)): ?>
 <div class="zone-realisations">
 
 	<div class="splide splide-images">
@@ -66,3 +66,4 @@ $template = getTemplate(get_the_ID());
 	</div>
 
 </div>
+<?php endif; ?>

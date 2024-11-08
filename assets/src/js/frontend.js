@@ -8,13 +8,27 @@ document.addEventListener('DOMContentLoaded', function (e) {
 })
 
 const init = function (e) {
-
   const lenis = new Lenis({
     autoRaf: true,
-  });
+  })
 
-  
-  
+  if (document.querySelector('#cp')) {
+    const cp = document.querySelector('#cp')
+    let error = true
+    cp.addEventListener('keyup', function (e) {
+      
+      if (cp.value.length >= 5) {
+          interlocuteurs.forEach(element => {
+            if (element['codes_postaux'].includes(cp.value) ) {
+              console.log(element['nom'])
+              error = false
+            }
+          });
+
+        }
+    })
+  }
+
   // INIT Sliders Réalisations
   if (document.querySelector('.splide-images')) {
     const images = new Splide('.splide-images', {
@@ -101,17 +115,17 @@ const init = function (e) {
           //   .querySelector('.tag-reference-tout')
           //   .classList.remove('is-active')
 
-            btns.forEach((btn) => {
-              btn.classList.remove('is-active')
-            })
+          btns.forEach((btn) => {
+            btn.classList.remove('is-active')
+          })
 
           if (e.target.classList.contains('is-active')) {
             e.target.classList.remove('is-active')
             updateFiltre()
-    
-              document
-                .querySelector('.tag-reference-tout')
-                .classList.add('is-active')
+
+            document
+              .querySelector('.tag-reference-tout')
+              .classList.add('is-active')
           } else {
             e.target.classList.add('is-active')
             updateFiltre()
@@ -137,4 +151,8 @@ const init = function (e) {
       })
     }
   }
+
+
+
+
 }

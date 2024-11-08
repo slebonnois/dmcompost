@@ -32,7 +32,6 @@ $c = get_fields();
 			?></h1>
 		</div>
 	</div>
-
 </div>
 
 
@@ -40,7 +39,6 @@ $c = get_fields();
 
 	<div class="row">
 		<div class="col col-lg-4 offset-lg-1 col-12 my-auto">
-
 
 			<?php if ($c['type'] == 1): ?>
 				<div class="card-formation--type">
@@ -154,10 +152,43 @@ $c = get_fields();
 		</div>
 		<div class="col col-lg-3 offset-lg-1 col-12 container-formation--detail">
 
-			<div class="formation-detail">
-				<div class="titre-s ico-formation ico-tarif">TARIF</div>
-				<div class="titre-m">SUR DEVIS</div>
-			</div>
+			<?php if ($c['configuration']['tarif_groupe']['sur_devis'] == true): ?>
+				<div class="formation-detail">
+					<div class="titre-s ico-formation ico-tarif">TARIF</div>
+					<div class="titre-m">SUR DEVIS</div>
+				</div>
+			<?php elseif (!empty( $c['configuration']['tarif_groupe']['tarif_solidaire']['montant'] )): ?>
+
+
+					<div class="formation-detail formation-tarif formation-tarif-principal">
+						<div class="titre-s ico-formation ico-tarif">TARIF</div>
+						<div><span class="chiffre"><strong><?php echo $c['configuration']['tarif_groupe']['tarif']['montant'] ?></strong></span> <span class="titre-m"><strong><?php echo $c['configuration']['tarif_groupe']['tarif']['unite'] ?></strong></span></div>
+						<div class="formation-tarif-complement">
+							<div class="titre-m"><strong><?php echo $c['configuration']['tarif_groupe']['tarif']['montant_option'] ?></strong></div>
+							<div class="texte-s"><strong><?php echo $c['configuration']['tarif_groupe']['tarif']['commentaire_option'] ?></strong></div>
+						</div>
+					</div>
+
+					<div class="formation-detail  formation-tarif">
+						<div class="titre-s ico-formation ico-tarif">TARIF SOLIDAIRE</div>
+						<div><span class="titre-m"><strong><?php echo $c['configuration']['tarif_groupe']['tarif_solidaire']['montant'] ?></strong> <strong><?php echo $c['configuration']['tarif_groupe']['tarif_solidaire']['unite'] ?></strong></span></div>
+						<div class="formation-tarif-complement">
+						<?php if(!empty($c['configuration']['tarif_groupe']['tarif_solidaire']['montant_option'])) : ?><div class="titre-m"><strong><?php echo $c['configuration']['tarif_groupe']['tarif_solidaire']['montant_option'] ?></strong></div><?php endif; ?>
+							<div class="texte-s"><strong><?php echo $c['configuration']['tarif_groupe']['tarif_solidaire']['commentaire_option'] ?></strong></div>
+						</div>
+						<div class="texte-s"><strong>- Nombre de places limité -</strong></div>
+					</div>
+					<?php else : ?>
+
+						<div class="formation-detail formation-tarif  ">
+						<div class="titre-s ico-formation ico-tarif">TARIF</div>
+						<div><span class="chiffre"><strong><?php echo $c['configuration']['tarif_groupe']['tarif']['montant'] ?></strong></span> <span class="titre-m"><strong><?php echo $c['configuration']['tarif_groupe']['tarif']['unite'] ?></strong></span></div>
+						<div class="formation-tarif-complement">
+						<?php if(!empty($c['configuration']['tarif_groupe']['tarif']['montant_option'])) : ?><div class="titre-m"><strong><?php echo $c['configuration']['tarif_groupe']['tarif']['montant_option'] ?></strong></div><?php endif; ?>
+							<div class="texte-s"><strong><?php echo $c['configuration']['tarif_groupe']['tarif']['commentaire_option'] ?></strong></div>
+						</div>
+					</div>
+			<?php endif; ?>
 
 			<div class="formation-detail">
 				<div class="titre-s ico-formation ico-duree">Durée</div>

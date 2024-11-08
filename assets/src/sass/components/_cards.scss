@@ -64,22 +64,22 @@
   }
   &.card-formation-animations  {
     .card-header {
-      background-color: var(--form);
+      background-color: var(--form)  !important;
     }
     &:hover {
       .btn-xs {
-        background-color:var(--form);
+        background-color:var(--form)  !important;
         background-image: url(../images/ico-fleche-blanche.svg);
       }
     }
   }
   &.card-bureau-detudes {
     .card-header {
-      background-color: var(--be);
+      background-color: var(--be) !important;
     }
     &:hover {
       .btn-xs {
-        background-color:var(--be);
+        background-color:var(--be)  !important;
         background-image: url(../images/ico-fleche-blanche.svg);
       }
     }
@@ -87,11 +87,11 @@
 
   &.card-compostage-de-proximite {
     .card-header {
-      background-color: var(--prox);
+      background-color: var(--prox)  !important;
     }
     &:hover {
       .btn-xs {
-        background-color:var(--prox);
+        background-color:var(--prox)  !important;
         background-image: url(../images/ico-fleche-blanche.svg);
       }
     }
@@ -136,67 +136,7 @@
   .texte-m {
     margin-left:4rem;
   }
-  ul {
-    padding-left: 0;
-    padding-top: 1.6rem;
-  }
-  li {
-    list-style: none;
 
-    display: block;
-
-    a {
-      color: var(--be);
-      text-decoration: none;
-      position: relative;
-      display: block;
-
-      .lien {
-        padding: 1.6rem 0;
-        margin: 0 4rem;
-        border-top: 1px solid #c5bdb4;
-      }
-      p {
-        margin: 0;
-      }
-      &:after {
-        content: ' ';
-        width: 2.8rem;
-        height: 2.8rem;
-        border-radius: 50%;
-        display: block;
-        position: absolute;
-        right: 4rem;
-        top: 50%;
-        transform: translateY(-50%);
-        background-image: url(../images/ico-lien-cible.svg);
-
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-    }
-
-    &:hover {
-
-      + li {
-        .lien {
-          border-top:1px solid var(--marron1);
-        }
-      }
-      a {
-        color: white;
-        background-color: var(--vert);
-        &:after {
-          background-color: white;
-          background-image: url(../images/ico-fleche-noire.svg);
-        }
-        .lien {
-          border-top: 1px solid var(--vert);
-        }
-      }
-    }
-
-  }
 }
 
 .card-accompagne {
