@@ -11,10 +11,10 @@
   overflow: hidden;
   margin-bottom: 3.2rem;
   transition: all 0.3s;
-  box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.20);
+  box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    box-shadow:1px 5px 8px rgba(0, 0, 0, 0.50);
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.5);
     .card-header {
       background-color: white;
     }
@@ -22,9 +22,9 @@
       background-image: url(../images/ico-fleche-blanche.svg) !important;
     }
   }
-  
+
   .card-header {
-    padding: 2.4rem 3.2rem 1.6rem 3.2rem;
+    padding: 2rem;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -35,13 +35,32 @@
     background-color: var(--marron1);
     color: var(--texte);
     transition: all 0.3s;
-    .texte-l {
-      height: 10rem;
+
+    @include media-breakpoint-down(md) {
+      .col-4 {
+        padding:0 !important;
+      }
     }
 
-    .card-header--accroche {
-      min-height:6rem;
+    @include media-breakpoint-up(md) {
+      padding: 2.4rem 3.2rem 1.6rem 3.2rem;
+      .texte-l {
+        height: 10rem;
+      }
+  
+      .card-header--accroche {
+        min-height: 6rem;
+      }
+
+      img {
+        width:auto;
+      }
     }
+
+    img {
+      width:7rem; 
+    }
+   
   }
 
   &.card-expertise {
@@ -62,13 +81,13 @@
       min-height: 21.7155rem;
     }
   }
-  &.card-formation-animations  {
+  &.card-formation-animations {
     .card-header {
-      background-color: var(--form)  !important;
+      background-color: var(--form) !important;
     }
     &:hover {
       .btn-xs {
-        background-color:var(--form)  !important;
+        background-color: var(--form) !important;
         background-image: url(../images/ico-fleche-blanche.svg);
       }
     }
@@ -79,7 +98,7 @@
     }
     &:hover {
       .btn-xs {
-        background-color:var(--be)  !important;
+        background-color: var(--be) !important;
         background-image: url(../images/ico-fleche-blanche.svg);
       }
     }
@@ -87,56 +106,76 @@
 
   &.card-compostage-de-proximite {
     .card-header {
-      background-color: var(--prox)  !important;
+      background-color: var(--prox) !important;
     }
     &:hover {
       .btn-xs {
-        background-color:var(--prox)  !important;
+        background-color: var(--prox) !important;
         background-image: url(../images/ico-fleche-blanche.svg);
       }
     }
   }
 
-
-
   .card-conteneur {
     position: relative;
-    aspect-ratio: 37.5/20;
+
     background-position: center;
     background-size: cover;
+
+    aspect-ratio: 37.5/20;
+
     .btn-xs {
       position: absolute;
       right: 2.4rem;
       bottom: 2.4rem;
       width: 3rem;
       height: 3rem;
-      z-index:15;
+      z-index: 15;
       border-radius: 3rem;
       background-color: white;
-      transition: all .3s;
+      transition: all 0.3s;
       background-image: url(../images/ico-fleche-noire.svg);
       background-position: center;
       background-repeat: no-repeat;
+
+      @include media-breakpoint-down(md) {
+        right: calc(50% - 1.2rem);
+      }
     }
   }
   &.card-expertise {
+    .card-header {
+      @include media-breakpoint-down(md) {
+        padding-bottom: 8rem;
+      }
+    }
+
     .card-conteneur {
-      aspect-ratio: 37.6/25.8;
+      aspect-ratio: 0;
+      @include media-breakpoint-up(lg) {
+        aspect-ratio: 37.6/25.8;
+      }
     }
   }
 }
 
 .card-cibles {
-  padding: 2.4rem 0 0rem 0;
+  padding: 1.6rem 0 0 0;
   border-radius: 0.8rem;
   border: 8px solid white;
   background: var(--marron1);
   box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.29);
 
-  .texte-m {
-    margin-left:4rem;
+  @include media-breakpoint-up(lg) {
+    padding: 2.4rem 0 0rem 0;
   }
 
+  .texte-m {
+    margin-left: 1.2rem;
+    @include media-breakpoint-up(md) {
+      margin-left: 4rem;
+    }
+  }
 }
 
 .card-accompagne {
@@ -146,7 +185,7 @@
   background-size: contain;
   background-position: bottom left;
   padding: 2.4rem;
-  min-height: 28.2rem;
+
   border-radius: 0.8rem;
   color: white;
   margin-bottom: 3.2rem;
@@ -160,25 +199,33 @@
 
   position: relative;
 
+  @include media-breakpoint-up(md) {
+    min-height: 28.2rem;
+  }
   .card-accompagne--nbr {
     color: var(--vert);
-    margin-bottom:1rem !important;
-
+    margin-bottom: 1rem !important;
   }
 
-  &.card-accompagne--3 {
-    margin-top: 15.8rem;
+  @include media-breakpoint-up(md) {
+    &.card-accompagne--3 {
+      margin-top: 15.8rem;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &.card-accompagne-image {
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-image: url(../images/photo-accompagne.jpg);
-  }
+    display: none;
 
-  &:last-child {
-    margin-bottom: 0;
+    @include media-breakpoint-up(md) {
+      display: block;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-image: url(../images/photo-accompagne.jpg);
+    }
   }
 }
 
@@ -209,14 +256,14 @@ body.compostage-de-proximite {
   }
 
   &:hover {
-   
+    background-color: white;
   }
 
   .titre-m {
     padding: 0 3.2rem;
     em {
-      font-style:normal;
-      font-size:2rem;
+      font-style: normal;
+      font-size: 2rem;
       line-height: normal;
     }
   }
@@ -227,35 +274,51 @@ body.compostage-de-proximite {
     .tag {
       margin-left: 0;
     }
+    .formation-certifiante {
+      @include media-breakpoint-down(md) {
+        line-height: 2.9rem !important;
+      }
+    }
   }
 }
 
 .formation-certifiante {
   color: var(--be);
-  display: inline-block;
+  display: block;
   font-weight: bold;
   height: 2.7rem;
   background-image: url(../images/ico-certifiant.svg);
   background-repeat: no-repeat;
+  margin-top:0.8rem;
   padding-left: 2.4rem;
-  line-height: 2.7rem !important;
+
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+   
+    line-height: 2.7rem !important;
+    margin-top:0rem;
+  }
 }
 .conteneur-menu {
-
-.formation-certifiante {
-  background-image: url(../images/ico-certifiant-2.svg);
-}
+  .formation-certifiante {
+    background-image: url(../images/ico-certifiant-2.svg);
+  }
 }
 .card-formation--type {
   width: 100%;
-
+  padding-bottom: 1.6rem;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-content: center;
-  align-items: center;
-  padding-bottom: 3rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+  @include media-breakpoint-up(md) {
+
+    padding-bottom: 3rem;
+
+  
+  }
 
   > div {
     padding: 1.4rem 3.2rem;
@@ -306,10 +369,14 @@ body.compostage-de-proximite {
     order: 0;
     flex: 0 1 auto;
     align-self: auto;
-    height: 16rem;
+    height: 10rem;
     margin-right: 1rem;
     border: 0.8rem solid white;
     //box-shadow:inset 0px 0px 0px 0.8rem #fff;
+
+    @include media-breakpoint-up(md) {
+      height: 16rem;
+    }
   }
 
   .card-formateur--nom {
@@ -327,7 +394,7 @@ body.bureau-detudes {
     }
     &:hover {
       .btn-xs {
-        background-color:  var(--be) !important;;
+        background-color: var(--be) !important;
       }
     }
   }
@@ -342,8 +409,39 @@ body.compostage-de-proximite {
 
     &:hover {
       .btn-xs {
-        background-color:  var(--prox) !important;;
+        background-color: var(--prox) !important;
       }
     }
+  }
+}
+
+.card-profile {
+  width: 100%;
+  background-color: var(--vert);
+  @extend .texte-l;
+  font-weight: 600 !important;
+  text-align: center;
+  aspect-ratio: 20/6;
+  padding: 1.2rem 2rem;
+  flex: 1 0 0;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  transition: all 0.3s;
+  margin-bottom: 0.8rem !important;
+  cursor: pointer;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 1.6rem !important;
+    aspect-ratio: 20/10;
+  }
+  &:hover,
+  .is-active {
+    color: white !important;
+    background-color: var(--be);
   }
 }

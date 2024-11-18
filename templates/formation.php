@@ -37,7 +37,7 @@ $c = get_fields();
 
 <div class="container container-page container-formation--header zone-contenus">
 
-	<div class="row">
+	<div class="row ">
 		<div class="col col-lg-4 offset-lg-1 col-12 my-auto">
 
 			<?php if ($c['type'] == 1): ?>
@@ -68,13 +68,13 @@ $c = get_fields();
 					<?php foreach ($c['configuration']['ademe'] as $val): ?>
 						<?php if ($val == 1): ?>
 							<div class="col col-12 col-xl-6">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/logos/formation/ademe.png">
+								<img src="<?php echo get_stylesheet_directory_uri() ?>/logos/formation/ademe.png" alt="ADEME">
 								<div class="texte-s">Formation selon le référentiel ADEME</div>
 							</div>
 						<?php endif; ?>
 						<?php if ($val == 2): ?>
 							<div class="col col-12 col-xl-6">
-								<img src="<?php echo get_stylesheet_directory_uri() ?>/logos/formation/cpf.png">
+								<img src="<?php echo get_stylesheet_directory_uri() ?>/logos/formation/cpf.png" alt="CPF">
 								<div class="texte-s">Formation éligible au CPF selon conditions</div>
 							</div>
 
@@ -125,7 +125,7 @@ $c = get_fields();
 					<?PHP endif; ?>
 
 					<?php if ($c['contenus']['pdf_programme']): ?>
-						<a href="<?php echo $c['contenus']['pdf_programme'] ?>" class="btn" target="_blank">Programme en
+						<a href="<?php echo $c['contenus']['pdf_programme'] ?>" class="btn btn--formation" target="_blank">Programme en
 							détail</a>
 					<?PHP endif; ?>
 				</div>
@@ -140,7 +140,7 @@ $c = get_fields();
 					<?PHP endif; ?>
 
 					<?php if ($c['contenus']['guide_certification']): ?>
-						<a href="<?php echo $c['contenus']['guide_certification'] ?>" class="btn" target="_blank">guide du
+						<a href="<?php echo $c['contenus']['guide_certification'] ?>" class="btn btn--formation" target="_blank">guide du
 							candidat à la
 							certification</a>
 					<?PHP endif; ?>
@@ -234,9 +234,10 @@ $c = get_fields();
 	</div>
 <?php else: ?>
 	<div class="zone-contact">
-		<div class="bloc-contact bloc-contact--formation">
+		<div class="bloc-contact bloc-contact--formation bloc-contact--formation-sessions">
 			<div class="bloc-contact-contenu">
-				<div class="texte-xxl align-right"><strong>Prochaines<br>sessions</strong></div>
+				<div class="texte-xxl  d-block d-md-none"><strong>Prochaines sessions</strong></div>
+				<div class="texte-xxl align-right d-md-block d-none"><strong>Prochaines<br>sessions</strong></div>
 				<div class="session-select">
 					<select id="select-session">
 						<?php foreach ($c['configuration']['session'] as $session): ?>
@@ -244,7 +245,7 @@ $c = get_fields();
 						<?php endforeach; ?>
 					</select>
 				</div>
-				<div class="btn btn-preinscription">se pré-inscrire</div>
+				<div class="btn btn--vert ">se pré-inscrire</div>
 				<a href="/contact" class="btn-contact">
 					<div class="texte-xxl"><strong>Besoin d’infos&nbsp;?</strong></div>
 					<div class="btn-texte">Nous contacter</div>

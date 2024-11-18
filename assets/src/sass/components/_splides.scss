@@ -13,23 +13,49 @@
     margin-top: 2.4rem;
   }
 }
+
+.splide__track {
+  max-width: 100%;
+}
+
+
 .splide-images {
-  position: absolute;
-  left: 0;
-  width: 45%;
+  
+width:80%;
+  .splide__track {
+    height: 100%;
+  }
 
   .splide__slide {
     aspect-ratio: 1/1;
+    height: 100%;
     position: relative;
-  }
 
+    .titre-m {
+      @include media-breakpoint-down(md) {
+        margin-bottom: 0.8rem;;
+      }
+    }
+  }
   .splide__slide--image {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 99%;
     height: 100%;
     background-size: cover;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: auto;
+    position: absolute;
+    left: 0;
+    width: 45%;
+
+    .splide__slide--image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 99%;
+      height: 100% !important;
+      background-size: cover;
+    }
   }
 }
 

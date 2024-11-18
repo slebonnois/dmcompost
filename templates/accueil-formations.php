@@ -32,10 +32,10 @@ $formations = getFormations();
 
 
 <div class="container container-large">
-	<div class="row">
+	<div class="row reveal">
 
-		<?php foreach ($formations as $formation): ?>
-			<div class="col col-12  col-sm-6 col-md-6 col-lg-4 col-xl-3 ">
+		<?php $i=1; foreach ($formations as $formation): ?>
+			<div class="col col-10 offset-1 offset-sm-0 offset-md-0 offset-lg-0  offset-xl-0 col-sm-6 col-md-6 col-lg-4 col-xl-3 reveal-<?php echo $i?>">
 				<a class="card card-formation" href="<?php the_permalink($formation->ID) ?>">
 					<?php if ($formation->fields['type'] == 1): ?>
 						<div class="card-formation--type">
@@ -71,35 +71,38 @@ $formations = getFormations();
 					</div>
 				</a>
 			</div>
-		<?php endforeach; ?>
+		<?php $i++; endforeach; ?>
 
 	</div>
 </div>
 
-<div class="container zone-contenus container-cta-formation">
+<div class="container zone-contenus container-cta-formation reveal">
 
 	<div class="row">
-		<div class="col col-lg-6 col-12 align-right">
+		<div class="col col-lg-6 col-12 align-right reveal-1">
 			<a href="/contact" class="btn">intéressé ? nous contacter</a>
 		</div>
-		<div class="col col-lg-6 col-12  ">
+		<div class="col col-lg-6 col-12   reveal-2">
 			<a href="/contact" class="btn btn--vert">télécharger le catalogue</a>
 		</div>
 	</div>
 </div>
-
+<div class="conteneur-vague">
+        <div class="vague"></div>
+    </div>
 <div class="container zone-contenus ">
 
 
-	<div class="row ">
+
+	<div class="row reveal">
 		<div class="col col-lg-10 offset-lg-1 col-12">
 			<div class="row">
-				<div class="col col-6 my-auto">
+				<div class="col col-md-6 col-12 my-auto order-1 order-md-0">
 
 					<div class="row ">
-						<div class="col col-6 my-auto ">
+						<div class="col col-6 my-auto reveal-1">
 							<div class="picto">
-								<div class="picto-image picto-formation-1"></div>
+								<div class="picto-image picto-formation-1 "></div>
 								<div class="picto-texte">
 									<div class="texte-xl align-center"><strong>Approche respectueuse</strong><br>du
 										vivant
@@ -107,7 +110,7 @@ $formations = getFormations();
 								</div>
 							</div>
 						</div>
-						<div class="col col-6 my-auto ">
+						<div class="col col-6 my-auto reveal-2">
 							<div class="picto">
 								<div class="picto-image picto-formation-2"></div>
 								<div class="picto-texte">
@@ -120,7 +123,7 @@ $formations = getFormations();
 					</div>
 
 					<div class="row">
-						<div class="col col-6 my-auto ">
+						<div class="col col-6 my-auto reveal-3">
 							<div class="picto">
 								<div class="picto-image picto-formation-3"></div>
 								<div class="picto-texte">
@@ -128,7 +131,7 @@ $formations = getFormations();
 								</div>
 							</div>
 						</div>
-						<div class="col col-6 my-auto ">
+						<div class="col col-6 my-auto reveal-4">
 							<div class="picto">
 								<div class="picto-image picto-formation-4"></div>
 								<div class="picto-texte">
@@ -139,11 +142,11 @@ $formations = getFormations();
 					</div>
 
 				</div>
-				<div class="col col-6 my-auto ">
+				<div class="col col-md-6 col-12 my-auto reveal-5 order-0 order-md-1">
 					<div class="titre-xl marge-6">
 						<?php echo $c['sous-titre'] ?>
 					</div>
-					<div class="texte-m marge-6">
+					<div class="texte-m marge-6 reveal-6">
 						<?php echo $c['texte'] ?>
 					</div>
 				</div>
@@ -154,15 +157,15 @@ $formations = getFormations();
 
 <div class="container zone-contenus">
 
-	<div class="row">
-		<div class="col col-lg-10 offset-lg-1 col-12">
+	<div class="row reveal" >
+		<div class="col col-lg-10 offset-lg-1 col-12 reveal-1">
 			<div class="titre-xl  align-center">Nos formateurs</div>
 		</div>
 	</div>
 
-	<div class="row ">
-		<?php foreach ($c['formateurs'] as $formateur): ?>
-			<div class="col  col-12 col-xl-4 col-lg-6">
+	<div class="row reveal">
+		<?php $i = 2; foreach ($c['formateurs'] as $formateur): ?>
+			<div class="col  col-12 col-xl-4 col-lg-6 reveal-<?php echo $i ?>">
 				<div class="card-formateur ">
 					<div class="card-formateur--portrait"
 						style="background-image:url(<?php echo get_field('photo_3', $formateur->ID)['sizes']['medium'] ?>);">
@@ -173,7 +176,7 @@ $formations = getFormations();
 					</div>
 				</div>
 			</div>
-		<?php endforeach; ?>
+		<?php $i++; endforeach; ?>
 	</div>
 </div>
 
@@ -181,12 +184,12 @@ $formations = getFormations();
 
 	<?php if ($c['ils_nous_font_confiance']): ?>
 
-		<div class="row ">
+		<div class="row reveal">
 			<div class="ils_nous_font_confiance">
-				<div class="titre-xl ">Ils nous font confiance</div>
-				<div class="ils_nous_font_confiance-logos">
+				<div class="titre-xl reveal-1">Ils nous font confiance</div>
+				<div class="ils_nous_font_confiance-logos reveal-2">
 					<?php foreach ($c['ils_nous_font_confiance'] as $logo): ?>
-						<img src="<?php echo $logo['sizes']['large'] ?>">
+						<img src="<?php echo $logo['sizes']['large'] ?>" alt="<?php echo $logo['filename'] ?>">
 					<?php endforeach; ?>
 				</div>
 			</div>
@@ -200,32 +203,73 @@ $formations = getFormations();
 
 <?php if ($c['afficher_chiffres']): ?>
 
+	<div class="container zone-contenus reveal">
 
-	<div class="container zone-contenus">
-
-		<div class="row row-chiffres quelques-chiffres">
+		<div class="row row-chiffres quelques-chiffres reveal-1">
 			<div class="col col-12 col-lg-10 offset-lg-1">
 				<div class="row ">
-					<div class="col col-12">
+					<div class="col col-12 reveal-2">
 						<div class="texte-xxl">En quelques chiffres</div>
 					</div>
 				</div>
 				<div class="row ">
-					<div class="col col-lg-4 col-12">
+					<div class="col col-lg-4 col-12 reveal-3">
 						<div class="chiffre"><?php echo $c['chiffre_1'] ?></div>
 						<div class="titre-s"><?php echo $c['texte_1'] ?></div>
 					</div>
-					<div class="col col-lg-4 col-12">
+					<div class="col col-lg-4 col-12 reveal-4">
 						<div class="chiffre"><?php echo $c['chiffre_2'] ?></div>
 						<div class="titre-s"><?php echo $c['texte_2'] ?></div>
 					</div>
-					<div class="col col-lg-4 col-12">
+					<div class="col col-lg-4 col-12 reveal-5">
 						<div class="chiffre"><?php echo $c['chiffre_3'] ?></div>
 						<div class="titre-s"><?php echo $c['texte_3'] ?></div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<div class="row row-chiffres row-chiffres-mobile quelques-chiffres reveal-1">
+            <div class="col col-12 col-lg-10 offset-lg-1">
+                <div class="row ">
+                    <div class="col col-12">
+                        <div class="texte-xxl">En quelques chiffres</div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col col-12">
+
+                        <div class="splide splide-chiffres">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+
+                                    <li class="splide__slide">
+                                        <div class="chiffre"><?php echo $c['chiffre_1'] ?></div>
+                                        <div class="titre-s"><?php echo $c['texte_1'] ?></div>
+                                    </li>
+
+                                    <li class="splide__slide">
+                                        <div class="chiffre"><?php echo $c['chiffre_2'] ?></div>
+                                        <div class="titre-s"><?php echo $c['texte_2'] ?></div>
+                                    </li>
+
+                                    <li class="splide__slide">
+                                        <div class="chiffre"><?php echo $c['chiffre_3'] ?></div>
+                                        <div class="titre-s"><?php echo $c['texte_3'] ?></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
 	</div>
 
 <?php endif ?>

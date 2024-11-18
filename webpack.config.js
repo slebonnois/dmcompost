@@ -32,6 +32,10 @@ const projectFiles = {
         // including both JS and Sass files. We can use this property to tell BrowserSync to watch
         // for other types of files, in this case PHP files, in our project.
         files:  '**/**/**.php',
+        https: {
+            key:  path.resolve( __dirname, 'ssl/key.pem'),
+            cert:  path.resolve( __dirname, 'ssl/cert.pem'),
+          },
         reload: true, // Set false to prevent BrowserSync from reloading and let Webpack Dev Server take care of this
         // browse to http://localhost:3000/ during development,
     },

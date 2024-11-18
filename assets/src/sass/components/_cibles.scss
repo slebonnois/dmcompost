@@ -13,6 +13,9 @@ body.page-template-cible {
   }
 }
 
+.container .row .col.cible-header {
+  padding: 0 !important;
+}
 .container-cible {
   margin-top: 3.3rem;
   .row {
@@ -26,10 +29,23 @@ body.page-template-cible {
     z-index: 2;
   }
   .cible-header {
-    margin: 12rem 0;
-    text-align: right;
+    margin: 15rem 0 2.4rem 0;
+
+    @include media-breakpoint-up(md) {
+      text-align: right;
+      margin: 12rem 0;
+    }
     .titre-xxl {
       color: var(--texte);
+    }
+  }
+
+  .titre-xl {
+    @include media-breakpoint-up(md) {
+      text-align: center;
+    }
+    @include media-breakpoint-down(md) {
+      margin-bottom: 0;
     }
   }
 
@@ -50,29 +66,101 @@ body.page-template-cible {
 
   .cible-illu {
     position: absolute;
-    pointer-events: none;
     z-index: 1;
+    pointer-events: none;
     right: 0;
-    width: 100%;
     height: 60rem;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: auto;
+    background-position: bottom right;
     top: -177px;
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
 
+  .cible-illu-mobile {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    right: 0;
+    width: 20rem;
+    height: 30rem;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom right;
+    top: -133px;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
   }
 }
 
-body.page-template-cible:not(.particulier-enseignant) {
-  .row-contenu {
-    .titre-m,
-    .row-contenu--texte {
-      margin-bottom: 1.6rem;
 
-      .btn {
-        margin-top: 0.8rem;
+body.particulier-enseignant {
+  .row-contenu {
+    .row-contenu--texte {
+      order: 0;
+    
+      > * {
+        margin-right: 4rem;
       }
     }
-    &:nth-child(even) {
+    .row-contenu--image {
+      order: 1;
+      margin-top:3rem;
+      > * {
+        margin-left: 0rem;
+      }
+    }
+
+    .row-contenu--texte {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-content: flex-end;
+      align-items: flex-start;
+
+ 
+
+     
+    }
+  }
+  // .row-contenu:nth-child(odd) {
+  //   .row-contenu--texte {
+  //     order: 1;
+  //     @include make-col-offset(0, 12);
+  //     > * {
+  //       margin-left: 4rem;
+  //     }
+  //   }
+  //   .row-contenu--image {
+  //     order: 0;
+  //     > * {
+  //       margin-right: 0rem;
+  //     }
+  //   }
+
+  //   .row-contenu--texte {
+  //     display: flex;
+  //     flex-direction: column;
+  //     flex-wrap: nowrap;
+  //     justify-content: flex-start;
+  //     align-content: flex-end;
+  //     align-items: flex-start;
+
+  //     text-align: left !important;
+  //   }
+  // }
+}
+
+
+@include media-breakpoint-up(md) {
+  body.particulier-enseignant {
+    .row-contenu:nth-child(even) {
       .row-contenu--texte {
         order: 0;
         @include make-col-offset(1, 12);
@@ -96,10 +184,14 @@ body.page-template-cible:not(.particulier-enseignant) {
         align-content: flex-end;
         align-items: flex-end;
 
-        text-align: right;
+        @include media-breakpoint-up(lg) {
+          text-align: right;
+        }
+
+       
       }
     }
-    &:nth-child(odd) {
+    .row-contenu:nth-child(odd) {
       .row-contenu--texte {
         order: 1;
         @include make-col-offset(0, 12);
@@ -123,49 +215,155 @@ body.page-template-cible:not(.particulier-enseignant) {
         align-content: flex-end;
         align-items: flex-start;
 
-        text-align: left;
+        text-align: left !important;
       }
     }
   }
 }
 
-body.page-template-cible.particulier-enseignant {
+body.page-template-cible:not(.particulier-enseignant) {
   .row-contenu {
-    &:nth-child(odd) {
-      .row-contenu--texte {
-        text-align: right;
+    .titre-m,
+    .row-contenu--texte {
+      margin-bottom: 1.6rem;
+
+      .btn {
+        margin-top: 0.8rem;
+      }
+
+      .texte-m {
+        @include media-breakpoint-down(md) {
+          >,
+          p {
+            font-size: 1.4rem;
+            line-height: 1.9rem;
+          }
+        }
       }
     }
   }
 }
 
-.conteneur-interlocuteur {
+// body.page-template-cible.particulier-enseignant {
+//   .row-contenu {
+//     &:nth-child(odd) {
+//       .row-contenu--texte {
+//         text-align: right;
+//       }
+//     }
+//   }
+// }
+
+.container.container-contenu-cible {
+  padding-left: calc(var(--margin) / 2) !important;
+  padding-right: calc(var(--margin) / 2) !important;
+}
+
+#conteneur-interlocuteur {
+  margin-bottom: 2rem;
+  transition: all .3s;
   border-radius: 0.8rem;
   background: var(--bureau-tude, #00506a);
-  padding: 5.5rem 7rem;
+  padding: 4rem 2rem;
   color: white;
 
-  .texte-s {
-    margin-top: 2em;
+@include media-breakpoint-up (lg) {
+  padding: 5.5rem 7rem;
+}
+
+  .texte-l {
+    margin-bottom:2.4rem;
+  }
+  
+  .form-interlocuteur-cp {
+    margin-top:2.4rem;
+  }
+  .form-interlocuteur-resultat,
+  .form-interlocuteur-autre  {
+    display:none;
+  }
+  .erreur {
+    display:none;
+    margin-top:0.8rem;
+    color:  #FF6A6A;
+  }
+  &.resultat-erreur {
+    #cp {
+      border:1px solid #FF6A6A;
+    }
+    .erreur {
+      display:block;
+     
+    }
+  }
+
+  &.resultat-autre {
+    .form-interlocuteur-autre {
+      display: block;
+    }
+    .form-interlocuteur-cp {
+      display:none;
+    }
+  }
+
+  &.resultat {
+    form.form-interlocuteur {
+      display: none;
+    }
+    .form-interlocuteur-resultat {
+      display: block;
+    }
+  }
+
+
+.form-interlocuteur-resultat {
+  #btn-changer {
+    cursor:pointer;
+    margin-bottom: 2.4rem;
+    color: var(--vert);
+
+    &:before {
+      content: ' ';
+      display: inline-block;
+      width: 1.7707rem;
+      padding-right: 2.2rem;
+      height: 1.6rem;
+      background-image: url(../images/ico-changer.svg);
+      background-repeat: no-repeat;
+    }
   }
 }
+
+
+}
+
 
 form.form-interlocuteur {
   .form-radio {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+   display: block;
+
+    @include media-breakpoint-up(lg) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
+
   .form-control {
     margin-top: 0.8rem;
+    
     display: grid;
     grid-template-columns: 1em auto;
     gap: 1.2em;
     line-height: 2.5rem;
   }
 
+  .form-interlocuteur-autre {
+    color: var(--vert);
+  }
   .form-control:focus-within {
     color: var(--form-control-color);
   }
+
 
   input[type='text'] {
     width: 12.4rem;
@@ -175,13 +373,13 @@ form.form-interlocuteur {
     background: var(--marron1);
     border: 2px solid var(--marron1);
     border: 0;
-    margin-top:0.8rem;
+    margin-top: 0.8rem;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 600;
     line-height: 1.9rem; /* 135.714% */
     &.erreur {
-      border: 2px solid #FF6A6A;
+      border: 2px solid #ff6a6a;
     }
   }
   input[type='radio'] {

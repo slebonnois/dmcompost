@@ -1,20 +1,45 @@
+/**========================================================================
+ *                          BLOC CONTACT
+ *========================================================================**/
+
+
 .bloc-contact {
   color: var(--texte);
   border-radius: 15.8rem 0rem 0rem 15.8rem;
   background: linear-gradient(90deg, #cbd300 0%, #779f26 100%);
   background-repeat: no-repeat;
   background-position: right center;
-  width: 94.4rem;
+  width: 90%;
   height: 17rem;
   position: relative;
   transition: all 0.3s;
 
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
+
   justify-content: center;
   align-content: center;
-  align-items: center;
+  align-items: flex-end;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    align-items: center;
+    width: 94.4rem;
+  }
+
+  .texte-xxl {
+    padding: 0 2rem 0 4rem;
+    text-align: right;
+    @include media-breakpoint-down(md) {
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 2.4rem;
+    }
+    @include media-breakpoint-up(md) {
+      text-align: left;
+      padding: 0;
+    }
+  }
 
   &.bloc-contact--formation {
     background: linear-gradient(93deg, #9f7019 23.71%, #722323 84.38%);
@@ -22,24 +47,80 @@
       color: white;
     }
     .btn-texte {
-      color:var(--vert);
+      color: var(--vert);
       &:hover {
-        color:white;
+        color: white;
       }
     }
     &:hover {
-      background: linear-gradient(93deg, #825A0F 23.71%, #571A1A 84.38%);
+      background: linear-gradient(93deg, #825a0f 23.71%, #571a1a 84.38%);
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &.bloc-contact--formation-sessions {
+      height: 30.5rem;
+
+      .bloc-contact--fond {
+        background-position: center;
+        background-size: cover;
+        background-image: url(../images/fd-contact-logo-mobile.svg);
+      }
+      .bloc-contact-contenu {
+        flex-direction: column;
+        text-align: left;
+        padding-right:2.4rem;
+        align-items: flex-start;
+        padding-left:10rem;
+
+    
+
+        .session-select {
+          width:90% !important
+        }
+        .btn {
+          margin-right:0;
+        }
+        .btn-contact {
+          border-left: 0;
+          border-top:1px solid white;
+          margin-left: 0rem;
+          padding-left: 0rem;
+          text-align:left !important;
+          margin-top: 2.4rem;
+          padding-top: 2.4rem;
+
+          * {
+            text-align:left !important;
+          }
+        }
+        .texte-xxl {
+          margin-right:0 !important;
+          padding:0 !important;
+
+          @include media-breakpoint-down(md) {
+            text-align: left !important;
+            margin-bottom:0.8rem;
+          }
+        }
+      }
     }
   }
 
   .btn {
-    margin-left: 2.4rem;
-    z-index:10;
+    margin-top: 0.8rem;
+    margin-right: 1.6rem;
+    z-index: 10;
+    @include media-breakpoint-up(md) {
+      margin-top: 0;
+      margin-left: 2.4rem;
+      margin-right: 0;
+    }
   }
 
   .btn-preinscription {
     &:hover {
-      color:white !important;
+      color: white !important;
       background-color: var(--marron2);
     }
   }
@@ -99,16 +180,259 @@
   align-content: center;
   align-items: center;
 
-  margin-bottom: 16rem;
+  margin-bottom: 8rem;
+  @include media-breakpoint-up(md) {
+    margin-bottom: 16rem;
+  }
 }
 
-a.bloc-contact {
-  &:hover {
-    width: 100rem;
-  background: linear-gradient(93deg, #95A205 50.21%, #748910 99.32%);
-    .btn {
-      color:white !important;
-      background-color: var(--marron2);
+@include media-breakpoint-up(md) {
+  a.bloc-contact {
+    &:hover {
+      width: 100rem;
+      background: linear-gradient(93deg, #95a205 50.21%, #748910 99.32%);
+      .btn {
+        color: white !important;
+        background-color: var(--marron2);
+      }
     }
   }
+}
+
+/**========================================================================
+ *                           PAGE CONTACT
+ *========================================================================**/
+
+.container .row .col.col-form {
+  @include media-breakpoint-down(md) {
+    padding: 0 !important;
+  }
+}
+.col-form .col-demi .zone-form {
+  padding: 6rem 0;
+}
+
+.container .row .col-form {
+  .col-demi:first-child {
+    padding-right: 4rem !important;
+  }
+  .col-demi:last-child {
+    padding-left: 4rem !important;
+  }
+}
+
+.col-profiles {
+
+
+  fieldset {
+    padding-right: 0.3rem;
+ @include media-breakpoint-down(md) {
+  margin-top:0.6rem;
+
+  &:last-child {
+    margin-bottom:1rem;
+  }
+ }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+  .card-profile {
+    margin: 0.3rem;
+  }
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-content: stretch;
+    align-items: stretch;
+  }
+}
+
+input[type='submit'] {
+  border: 0;
+  cursor: pointer;
+}
+
+input[type='text'],
+input[type='email'] {
+  display: flex;
+  height: 5.2rem;
+  padding: 1.2rem;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 0.8rem;
+  border: 0;
+  @extend .texte-s;
+  font-weight: 600 !important;
+
+  width: 100%;
+
+  &:focus {
+    border: 0;
+    outline: none;
+  }
+  &:autofill {
+    background-color: white !important;
+  }
+}
+
+fieldset {
+  position: relative;
+  margin-top: 1.6rem;
+  width: 100%;
+
+  label {
+    width: 100%;
+  }
+  input,
+  textarea {
+    + .placeholder {
+      display: none;
+    }
+    &:placeholder-shown + .placeholder {
+      display: block;
+    }
+  }
+}
+
+form.submitted {
+  input:user-invalid,
+  textarea:user-invalid {
+    border: 1px solid #a13202;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1.2rem;
+  @extend .texte-s;
+  font-weight: 600 !important;
+}
+.placeholder span {
+  color: #a13202;
+}
+
+textarea {
+  height: 16.8rem;
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 0.8rem;
+  border: 0;
+  @extend .texte-s;
+  &:focus {
+    border: 0;
+    outline: none;
+  }
+
+  + .placeholder {
+    top: 1.2rem;
+    transform: translateY(0);
+  }
+}
+
+/* Create a custom checkbox */
+/* The container */
+fieldset.checkbox label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  line-height: 2.4rem;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+fieldset input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.4rem;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+/* On mouse-over, add a grey background color */
+fieldset:hover input[type='checkbox'] ~ .checkmark {
+  background-color: white;
+}
+
+/* When the checkbox is checked, add a blue background */
+fieldset input[type='checkbox']:checked ~ .checkmark {
+  background-color: var(--vert);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+fieldset input[type='checkbox']:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmark:after {
+  left: 8px;
+  top: 5px;
+  width: 8px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+// RADIO
+fieldset input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &:checked + .card-profile {
+    background-color: var(--be);
+    color: white !important;
+  }
+}
+
+.form-footer {
+  margin-top: 3.2rem;
+  margin-bottom: 16rem;
+  div {
+    margin-bottom: 0.8rem;
+    span {
+      color: #a13202;
+    }
+  }
+}
+
+
+.form-disabled {
+  pointer-events: none;
+  opacity: .4;
 }

@@ -2,20 +2,106 @@ footer {
   background-image: url(../images/fd-footer.png);
   background-repeat: repeat-x;
   background-position: top center;
-  padding-top: 13.5rem;
+  padding-top: 17rem;
   margin-top: 5rem;
   padding-bottom: 3rem;
   color: white;
 
   a {
-    color: white;
+    color: #C5BDB4 !important;
+    &:hover {
+      color: white !important;
+    }
   }
 
   .row-footer {
     padding-bottom: 8rem;
   }
 
+  .menu-roll {
+    &:after {
+      @include media-breakpoint-down(md) {
+        margin-top: 0.2rem;
+        margin-bottom: 0.6rem;
+      }
+    }
+  }
+
   .row-copyright {
     text-align: center;
+    opacity: 0.7;
+    .texte-xs {
+      font-size: 1.1rem;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 1.5rem; /* 136.364% */
+    }
+  
+
+  }
+  @include media-breakpoint-down (md) {
+  .col-quart {
+   
+      margin-bottom:2.4rem;
+
+      > * {
+        padding-left: 8%;
+      }
+    }
+
+    
+  }
+}
+
+.footer-adresse {
+  img {
+    margin-bottom:1.6rem;
+  }
+  a {
+    margin-bottom:1.6rem;
+    color:var(--vert) !important;
+  }
+}
+
+.footer-expertises {
+  div {
+    @include media-breakpoint-up (md) {
+      margin-bottom:2.4rem;
+    }
+    &:last-child {
+      margin-bottom:0;
+    }
+  }
+}
+
+.footer-cibles {
+  div {
+
+    margin-bottom:0.8rem;
+    font-weight: 400;;
+    &:last-child {
+      margin-bottom:0;
+    }
+  }
+}
+
+.footer-liens {
+  div {
+    
+    @include media-breakpoint-up (md) {
+      margin-bottom:1.6rem;
+    }
+    &:last-child {
+      margin-bottom:0;
+    }
+  }
+  img {
+    padding-right:0.8rem;
+ @include media-breakpoint-down (md) {
+      margin-top:2.4rem;
+    }
+    &:hover {
+      opacity: .8;
+    }
   }
 }

@@ -49,9 +49,12 @@
   },
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-intersection": "^0.2.0",
+    "accordion-js": "^3.3.4",
     "bootstrap": "^5.3.3",
     "custom-select": "^1.1.15",
     "file-loader": "^6.2.0",
+    "gsap": "^3.12.5",
     "lenis": "^1.1.16",
     "mixitup": "^3.3.2"
   },

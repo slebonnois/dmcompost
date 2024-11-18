@@ -12,16 +12,24 @@ body.qui-sommes-nous {
 
   .row-contenu {
     padding: 6rem 0;
+    &:last-child {
+      padding-bottom:0 !important;
+    }
   }
 
   .row-contenu:last-child {
     .row-contenu--texte {
       order: 0;
-      text-align: right;
-      @include make-col-offset(1, 12);
-      > * {
-        margin-right: 4rem;
+      @include media-breakpoint-up(lg){
+        
+        @include make-col-offset(1, 12);
+        > * {
+          margin-right: 4rem;
+        }
+
       }
+
+    
     }
     .row-contenu--image {
       margin-left: 0;
@@ -69,6 +77,14 @@ body.qui-sommes-nous {
   }
 }
 .container-recompenses {
+
+  .col:last-child {
+    @include media-breakpoint-down(md) {
+      margin-top: auto !important;
+      margin-bottom: auto !important;
+    }
+  }
+
   .recompenses-logos,
   .labels-logos {
     position: relative;
@@ -76,29 +92,45 @@ body.qui-sommes-nous {
     background: rgba(255, 255, 255, 0.6);
 
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
-    align-content: center;
-    align-items: center;
+
+    margin-top:10rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-top:0;  
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+    }
+    
 
     .recompense {
       flex: 1 1 0;
-      width: 0;
+     //width: 0;
+      margin:2rem 0;
 
+      @include media-breakpoint-up(lg) {
+        margin:0;
+      }
       .texte-s {
         height: 5.7rem;
         vertical-align: middle;
         color: var(--be);
       }
       .recompense-logo {
-        height: 9.8rem;
+        height: 6rem;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: center;
         align-content: center;
         align-items: center;
+        @include media-breakpoint-up(lg) {
+          height: 9.8rem;
+        }
       }
     }
     .titre-xl {
@@ -132,13 +164,18 @@ body.qui-sommes-nous {
     margin-top: 0.5rem;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-content: center;
     align-items: center;
+    @include media-breakpoint-up(lg) {
+      flex-wrap: nowrap;
+    }
     img {
       max-height: 8rem;
       max-width: 12rem;
+      margin:1rem;
+   
     }
   }
 }
@@ -166,12 +203,12 @@ body.qui-sommes-nous {
   }
 
   .equipe-contenu {
-    padding: 4rem 3.2rem;
+    padding: 2rem;
     color: white;
     position: relative;
     height: 100%;
 
-    opacity: 0;
+    
     transition: all 0.3s;
 
     display: flex;
@@ -182,6 +219,11 @@ body.qui-sommes-nous {
     align-items: stretch;
 
     pointer-events: none;
+
+    @include media-breakpoint-up(md) {
+      opacity: 0;
+      padding: 4rem 3.2rem;
+    }
 
     .titre-m,
     .texte-l,
@@ -196,20 +238,24 @@ body.qui-sommes-nous {
       z-index: 10;
     }
 
-    .equipe-contenu-fond {
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      opacity: 0.5;
-      background: var(
-        --marron-DM,
-        linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
-        var(--marron2)
-      );
+    @include media-breakpoint-up(md) {
+      .equipe-contenu-fond {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        background: var(
+          --marron-DM,
+          linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+          var(--marron2)
+        );
+      }
     }
+
+    
   }
 }
 
@@ -241,17 +287,25 @@ body.qui-sommes-nous {
     position: relative;
   }
   .detail-equipe-portrait {
-    position: absolute;
-    left: 0;
-    top: 0;
+  
     width: 100%;
     height: 100%;
     background-size: cover;
+    background-position: top center;
+
+    aspect-ratio: 489/389;
+    
+    @include media-breakpoint-up (md) {
+      position: absolute;
+      aspect-ratio: 489/589;
+      left: 0;
+      top: 0;
+    }
   }
   .detail-equipe {
-    overflow: hidden;
-    width: 96.3rem;
-    height: 58.9rem;
+    overflow-x:scroll;
+    width:90%;
+    height: 90%;
     max-width: 100%;
     border-radius: 0.8rem;
     background: var(--blanc, #fff);
@@ -260,32 +314,57 @@ body.qui-sommes-nous {
     top: 50%;
     transform: translate(-50%, -50%);
 
+    @include media-breakpoint-up(md) {
+      overflow: hidden;
+      height: 58.9rem;
+      width: 96.3rem;
+      max-width: 100%;
+    }
     .row {
       height: 100%;
     }
   }
 
   .equipe-tag {
-    height: 14rem;
-    width: 14rem;
-    position: absolute;
-    top: 6rem;
+    height: 12rem;
+    width: 12rem;
+    background-size: contain;
+
+    top: 1rem;
     right: 3.5rem;
+    position: absolute;
+
+    @include media-breakpoint-up(md) {
+      top: 6rem;
+      right: 3.5rem;
+      height: 14rem;
+      width: 14rem;
+      position: absolute;
+    }
+
     background-image: url(../images/fd-tag-equipe.svg);
     background-repeat: no-repeat;
     div {
-      
+
       color: var(--be);
       text-align: center;
       font-family: Oswald;
       font-size: 1.6rem;
-      transform: rotate(-7deg) translate(-0.5rem,5.5rem);
+      transform: rotate(-7deg) translate(-0.5rem,5rem);
       text-transform: uppercase;
+
+      @include media-breakpoint-up(md) {
+        transform: rotate(-7deg) translate(-0.5rem,5.5rem);
+      }
     }
   }
 
   .detail-equipe-texte {
-    padding: 0 8rem 6rem 8rem;
+    
+    padding: 2rem 4rem 6rem 4rem;
+    @include media-breakpoint-up(md) {
+      padding: 0 8rem 6rem 8rem;
+    }
 
     display: flex;
     flex-direction: column;
@@ -327,7 +406,7 @@ body.qui-sommes-nous {
 }
 
 .detail-equipe-ferme {
-  position: absolute;
+  position: fixed;
   right: 1.6rem;
   top: 0.8rem;
   width: 2.9rem;
@@ -336,4 +415,12 @@ body.qui-sommes-nous {
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
+
+  background-color: white;
+  border-radius: 50%;
+  @include media-breakpoint-up(md) {
+    background-color: transparent;
+    position: absolute;
+  }
+
 }

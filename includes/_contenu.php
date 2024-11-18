@@ -21,12 +21,16 @@ function getClass($id)
     else if (strpos($templateSlug, 'cible') !== false) {
         $tempPost = get_post($id);
         return $tempPost->post_name;
-    } else {
+    } else if (empty($templateSlug)) {
         $post = get_post($id);
-        return $post->post_name;
+        if (!is_front_page()) return $post->post_name.' page-contenu' ;
+        else return $post->post_name;
     }
 }
 
+function sortByOption($a, $b) {
+    return strcmp($a['logo']['filename'], $b['logo']['filename']);
+  }
 
 function loadExpertises()
 {
@@ -206,3 +210,4 @@ function getCibles($id)
     return $cibles;
 
 }
+
